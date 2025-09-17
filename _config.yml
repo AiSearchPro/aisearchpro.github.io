@@ -21,7 +21,6 @@ t:
       tool_types: "工具类型"
       collections: "合集"
       guides: "教程"
-      deals: "优惠"
     buttons:
       discover: "立即发现工具"
       submit: "提交/推荐工具"
@@ -38,7 +37,6 @@ t:
       tool_types_sub: "按产品形态/使用方式划分"
       collections: "合集与对比 Collections & Comparisons"
       guides: "教程与指南 Guides & Tutorials"
-      deals: "优惠与价格 Deals & Pricing"
     footer: "© AI Search Pro · 每日更新"
   en:
     title: "AI Search Pro"
@@ -52,7 +50,6 @@ t:
       tool_types: "Tool Types"
       collections: "Collections"
       guides: "Guides"
-      deals: "Deals"
     buttons:
       discover: "Discover Tools Now"
       submit: "Submit/Recommend Tools"
@@ -69,5 +66,4 @@ t:
       tool_types_sub: "Categorized by product form/usage method"
       collections: "Collections & Comparisons 合集与对比"
       guides: "Guides & Tutorials 教程与指南"
-      deals: "Deals & Pricing 优惠与价格"
     footer: "© AI Search Pro · Daily Updates"
