@@ -324,6 +324,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.tool-type-title[data-zh][data-en]').forEach(element => {
       element.textContent = element.getAttribute(`data-${lang}`);
     });
+    
+    // 更新合集链接标题
+    document.querySelectorAll('.collection-link[data-zh][data-en]').forEach(link => {
+      link.textContent = lang === 'en' ? link.getAttribute('data-en') : link.getAttribute('data-zh');
+    });
   }
 });
 </script>
@@ -431,8 +436,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- 合集与对比（改为 include 渲染） -->
     <section id="collections">
       <div class="wrap">
-        <h2>合集与对比 Collections & Comparisons</h2>
-        <div class="list"><a href="#">新手必备：10 个免费可用的 AI 工具</a><a href="#">文案写作工具横评：哪个更适合你？</a><a href="#">图片生成：MidJourney vs SDXL vs DALL·E</a></div>
+        <h2 class="section-title" data-zh="合集与对比 Collections & Comparisons" data-en="Collections & Comparisons">合集与对比 Collections & Comparisons</h2>
+        <div class="list"><a href="#" class="collection-link" data-zh="新手必备：10 个免费可用的 AI 工具" data-en="Beginner's Guide: 10 Free AI Tools You Must Know">新手必备：10 个免费可用的 AI 工具</a><a href="#" class="collection-link" data-zh="文案写作工具横评：哪个更适合你？" data-en="Writing Tools Comparison: Which One Suits You Best?">文案写作工具横评：哪个更适合你？</a><a href="#" class="collection-link" data-zh="图片生成：MidJourney vs SDXL vs DALL·E" data-en="Image Generation: MidJourney vs SDXL vs DALL·E">图片生成：MidJourney vs SDXL vs DALL·E</a></div>
       </div>
     </section>
 
