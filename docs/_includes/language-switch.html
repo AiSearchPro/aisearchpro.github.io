@@ -226,6 +226,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const enText = type.getAttribute('data-en');
       type.textContent = lang === 'zh' ? zhText : enText;
     });
+
+    // 更新Use Cases区域的标题
+        document.querySelectorAll('.use-case-title[data-zh][data-en]').forEach(element => {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        });
+
+        // 更新区域标题和副标题
+        document.querySelectorAll('.section-title[data-zh][data-en]').forEach(element => {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        });
+        document.querySelectorAll('.section-subtitle[data-zh][data-en]').forEach(element => {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        });
   }
 });
 </script>

@@ -301,6 +301,19 @@ document.addEventListener('DOMContentLoaded', function() {
       const enText = type.getAttribute('data-en');
       type.textContent = lang === 'zh' ? zhText : enText;
     });
+
+    // 更新Use Cases区域的标题
+        document.querySelectorAll('.use-case-title[data-zh][data-en]').forEach(element => {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        });
+
+        // 更新区域标题和副标题
+        document.querySelectorAll('.section-title[data-zh][data-en]').forEach(element => {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        });
+        document.querySelectorAll('.section-subtitle[data-zh][data-en]').forEach(element => {
+          element.textContent = element.getAttribute(`data-${lang}`);
+        });
   }
 });
 </script>
@@ -328,8 +341,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- 热门推荐（改为 include 渲染） -->
    <section id="featured">
         <div class="wrap">
-          <h2>热门推荐 Featured Picks</h2>
-          <div class="sub">人工精选/热度靠前 · 快速上手</div>
+          <h2 class="section-title" data-zh="热门推荐" data-en="Featured Picks">热门推荐</h2>
+          <div class="sub section-subtitle" data-zh="人工精选/热度靠前 · 快速上手" data-en="Hand-picked / Top trending · Quick start">人工精选/热度靠前 · 快速上手</div>
         <div class="grid"><article class="card">
       <h3><a href="#">ChatGPT</a></h3><div class="meta" data-zh="对话式助手 · 文案/翻译/总结" data-en="Conversational AI · Writing/Translation/Summary">对话式助手 · 文案/翻译/总结</div><div class="tags"><span class="tag">GPT‑4o</span><span class="tag">Web</span><span class="tag">Freemium</span></div></article><article class="card">
       <h3><a href="#">MidJourney</a></h3><div class="meta" data-zh="图像生成 · 品质优秀" data-en="Image Generation · High Quality">图像生成 · 品质优秀</div><div class="tags"><span class="tag">MJ v6</span><span class="tag">Discord</span><span class="tag">Subscription</span></div></article><article class="card">
@@ -340,8 +353,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- 今日/本周更新（改为 include 渲染） -->
    <section id="updates">
         <div class="wrap">
-          <h2>今日/本周更新 Today / This Week</h2>
-          <div class="sub">持续新增与校准，体现"每日更新"的承诺</div>
+          <h2 class="section-title" data-zh="今日/本周更新" data-en="Today / This Week">今日/本周更新</h2>
+          <div class="sub section-subtitle" data-zh="持续新增与校准，体现\"每日更新\"的承诺" data-en="Continuous additions and calibrations, demonstrating our \"daily update\" commitment">持续新增与校准，体现"每日更新"的承诺</div>
         <div class="list"><div><a href="#"class="update-title" data-zh="应用 A（写作提效）" data-en="App A (Writing Efficiency)">应用 A（写作提效）</a>· <small><span class="update-type" data-zh="新增" data-en="New">新增</span>· 2025-09-17
     </small>
   </div><div><a href="#"class="update-title" data-zh="工具 B（视频字幕）" data-en="Tool B (Video Subtitles)">工具 B（视频字幕）</a>· <small><span class="update-type" data-zh="升级" data-en="Updated">升级</span>· 2025-09-16
@@ -359,19 +372,19 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="sub">按真实需求组织，更贴近新手心智</div>
         <div class="grid">
           <a href="#office" class="card">
-            <h3>办公与效率</h3>
+            <h3 class="use-case-title" data-zh="办公与效率" data-en="Office & Productivity">办公与效率</h3>
           </a>
           <a href="#programming" class="card">
-            <h3>编程与代码</h3>
+            <h3 class="use-case-title" data-zh="编程与代码" data-en="Programming & Code">编程与代码</h3>
           </a>
           <a href="#creative" class="card">
-            <h3>创意与设计</h3>
+            <h3 class="use-case-title" data-zh="创意与设计" data-en="Creative & Design">创意与设计</h3>
           </a>
           <a href="#learning" class="card">
-            <h3>学习与研究</h3>
+            <h3 class="use-case-title" data-zh="学习与研究" data-en="Learning & Research">学习与研究</h3>
           </a>
           <a href="#entertainment" class="card">
-            <h3>娱乐与生活</h3>
+            <h3 class="use-case-title" data-zh="娱乐与生活" data-en="Entertainment & Life">娱乐与生活</h3>
           </a>
         </div>
       </div>

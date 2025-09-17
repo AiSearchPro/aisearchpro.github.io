@@ -98,8 +98,8 @@
     <!-- 热门推荐（改为 include 渲染） -->
    <section id="featured">
         <div class="wrap">
-          <h2>{{ site.languages[site.default_lang].sections.featured.title | default: "热门推荐 Featured Picks" }}</h2>
-          <div class="sub">{{ site.languages[site.default_lang].sections.featured.subtitle | default: "人工精选/热度靠前 · 快速上手" }}</div>
+          <h2 class="section-title" data-zh="热门推荐" data-en="Featured Picks">{{ site.languages[site.default_lang].sections.featured.title | default: "热门推荐" }}</h2>
+          <div class="sub section-subtitle" data-zh="人工精选/热度靠前 · 快速上手" data-en="Hand-picked / Top trending · Quick start">{{ site.languages[site.default_lang].sections.featured.subtitle | default: "人工精选/热度靠前 · 快速上手" }}</div>
         {% include featured.html %}
       </div>
     </section>
@@ -107,8 +107,8 @@
     <!-- 今日/本周更新（改为 include 渲染） -->
    <section id="updates">
         <div class="wrap">
-          <h2>{{ site.languages[site.default_lang].sections.updates.title | default: "今日/本周更新 Today / This Week" }}</h2>
-          <div class="sub">{{ site.languages[site.default_lang].sections.updates.subtitle | default: '持续新增与校准，体现"每日更新"的承诺' }}</div>
+          <h2 class="section-title" data-zh="今日/本周更新" data-en="Today / This Week">{{ site.languages[site.default_lang].sections.updates.title | default: "今日/本周更新" }}</h2>
+          <div class="sub section-subtitle" data-zh="持续新增与校准，体现\"每日更新\"的承诺" data-en="Continuous additions and calibrations, demonstrating our \"daily update\" commitment">{{ site.languages[site.default_lang].sections.updates.subtitle | default: '持续新增与校准，体现"每日更新"的承诺' }}</div>
         {% include updates.html %}
       </div>
     </section>
@@ -120,19 +120,19 @@
         <div class="sub">{{ site.languages[site.default_lang].sections.use_cases.subtitle | default: "按真实需求组织，更贴近新手心智" }}</div>
         <div class="grid">
           <a href="#office" class="card">
-            <h3>{{ site.languages[site.default_lang].sections.use_cases.office | default: "办公与效率" }}</h3>
+            <h3 class="use-case-title" data-zh="办公与效率" data-en="Office & Productivity">{{ site.languages[site.default_lang].sections.use_cases.office | default: "办公与效率" }}</h3>
           </a>
           <a href="#programming" class="card">
-            <h3>{{ site.languages[site.default_lang].sections.use_cases.programming | default: "编程与代码" }}</h3>
+            <h3 class="use-case-title" data-zh="编程与代码" data-en="Programming & Code">{{ site.languages[site.default_lang].sections.use_cases.programming | default: "编程与代码" }}</h3>
           </a>
           <a href="#creative" class="card">
-            <h3>{{ site.languages[site.default_lang].sections.use_cases.creative | default: "创意与设计" }}</h3>
+            <h3 class="use-case-title" data-zh="创意与设计" data-en="Creative & Design">{{ site.languages[site.default_lang].sections.use_cases.creative | default: "创意与设计" }}</h3>
           </a>
           <a href="#learning" class="card">
-            <h3>{{ site.languages[site.default_lang].sections.use_cases.learning | default: "学习与研究" }}</h3>
+            <h3 class="use-case-title" data-zh="学习与研究" data-en="Learning & Research">{{ site.languages[site.default_lang].sections.use_cases.learning | default: "学习与研究" }}</h3>
           </a>
           <a href="#entertainment" class="card">
-            <h3>{{ site.languages[site.default_lang].sections.use_cases.entertainment | default: "娱乐与生活" }}</h3>
+            <h3 class="use-case-title" data-zh="娱乐与生活" data-en="Entertainment & Life">{{ site.languages[site.default_lang].sections.use_cases.entertainment | default: "娱乐与生活" }}</h3>
           </a>
         </div>
       </div>
