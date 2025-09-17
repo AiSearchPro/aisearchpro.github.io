@@ -178,7 +178,43 @@ document.addEventListener('DOMContentLoaded', function() {
       '编辑': { zh: '编辑', en: 'Editing' },
       '角色扮演': { zh: '角色扮演', en: 'Roleplay' },
       '对话': { zh: '对话', en: 'Chat' },
-      'GitHub': { zh: 'GitHub', en: 'GitHub' }
+      'GitHub': { zh: 'GitHub', en: 'GitHub' },
+      // 工具类型页面标签补充
+      'GPT-4o': { zh: 'GPT-4o', en: 'GPT-4o' },
+      '通用': { zh: '通用', en: 'General' },
+      '长文本': { zh: '长文本', en: 'Long Text' },
+      '安全': { zh: '安全', en: 'Safe' },
+      '多模态': { zh: '多模态', en: 'Multimodal' },
+      'Google': { zh: 'Google', en: 'Google' },
+      '免费': { zh: '免费', en: 'Free' },
+      '高质量': { zh: '高质量', en: 'High Quality' },
+      'Discord': { zh: 'Discord', en: 'Discord' },
+      'OpenAI': { zh: 'OpenAI', en: 'OpenAI' },
+      '精确': { zh: '精确', en: 'Precise' },
+      '开源': { zh: '开源', en: 'Open Source' },
+      '可定制': { zh: '可定制', en: 'Customizable' },
+      '专业': { zh: '专业', en: 'Professional' },
+      '视频编辑': { zh: '视频编辑', en: 'Video Editing' },
+      '简单': { zh: '简单', en: 'Simple' },
+      '快速': { zh: '快速', en: 'Fast' },
+      '3D': { zh: '3D', en: '3D' },
+      '创新': { zh: '创新', en: 'Innovative' },
+      '技术': { zh: '技术', en: 'Technology' },
+      '音乐': { zh: '音乐', en: 'Music' },
+      '歌曲': { zh: '歌曲', en: 'Songs' },
+      '语音合成': { zh: '语音合成', en: 'Voice Synthesis' },
+      '克隆': { zh: '克隆', en: 'Cloning' },
+      '多语言': { zh: '多语言', en: 'Multilingual' },
+      '背景音乐': { zh: '背景音乐', en: 'Background Music' },
+      '实时': { zh: '实时', en: 'Real-time' },
+      '商用': { zh: '商用', en: 'Commercial' },
+      '营销': { zh: '营销', en: 'Marketing' },
+      '文案': { zh: '文案', en: 'Copywriting' },
+      '商业': { zh: '商业', en: 'Business' },
+      '多用途': { zh: '多用途', en: 'Multi-purpose' },
+      'SEO': { zh: 'SEO', en: 'SEO' },
+      '优化': { zh: '优化', en: 'Optimization' },
+      'IDE': { zh: 'IDE', en: 'IDE' }
     };
     // 反向映射（英文->中文）
     const reverseTagDict = Object.fromEntries(Object.entries(tagDict).map(([zh, pair]) => [pair.en, zh]));
@@ -317,9 +353,22 @@ document.addEventListener('DOMContentLoaded', function() {
       el.textContent = el.getAttribute(`data-${lang}`);
     });
 
-    // 更新“返回使用场景”链接
+    // 更新"返回使用场景"链接
     document.querySelectorAll('.back-to-use-cases[data-zh][data-en]').forEach(link => {
       link.textContent = link.getAttribute(`data-${lang}`);
+    });
+
+    // 更新"返回工具类型"链接
+    document.querySelectorAll('.back-to-tool-types[data-zh][data-en]').forEach(link => {
+      link.textContent = link.getAttribute(`data-${lang}`);
+    });
+
+    // 更新工具类型页面未找到分支的标题和描述
+    document.querySelectorAll('.not-found-title[data-zh][data-en]').forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
+    });
+    document.querySelectorAll('.not-found-description[data-zh][data-en]').forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
     });
     
     // 更新合集链接标题

@@ -27,16 +27,16 @@
     
     <div class="back-link">
       <!-- 从子页面返回首页工具类型区块，需带上 baseurl -->
-      <a href="{{ site.baseurl | default: '' }}/#tool-types">← 返回工具类型</a>
+      <a href="{{ site.baseurl | default: '' }}/#tool-types" class="back-to-tool-types" data-zh="← 返回工具类型" data-en="← Back to Tool Types">← 返回工具类型</a>
     </div>
   </div>
 </div>
 {%- else -%}
 <div class="category-not-found">
   <div class="wrap">
-    <h2>分类未找到</h2>
-    <p>抱歉，请求的工具类型分类不存在。</p>
-    <a href="{{ site.baseurl | default: '' }}/#tool-types">← 返回工具类型</a>
+    <h2 class="not-found-title" data-zh="分类未找到" data-en="Category Not Found">分类未找到</h2>
+    <p class="not-found-description" data-zh="抱歉，请求的工具类型分类不存在。" data-en="Sorry, the requested tool type category does not exist.">抱歉，请求的工具类型分类不存在。</p>
+    <a href="{{ site.baseurl | default: '' }}/#tool-types" class="back-to-tool-types" data-zh="← 返回工具类型" data-en="← Back to Tool Types">← 返回工具类型</a>
   </div>
 </div>
 {%- endif -%}
