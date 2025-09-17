@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="zh-CN">
+-<html lang="zh-CN">
++<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -93,7 +94,7 @@
         <a href="#collections">合集</a>
         <a href="#guides">教程</a>
         <a href="#deals">优惠</a>
-        <button id="lang-toggle" class="btn small" type="button" aria-label="Switch language">EN</button>
+        <button id="lang-toggle" class="btn small" type="button" aria-label="Switch language">中文</button>
       </nav>
     </div>
   </header>
@@ -300,7 +301,8 @@
       const $ = (s) => document.querySelector(s);
       const getLangFromUrl = new URLSearchParams(location.search).get('lang');
       const saved = localStorage.getItem('lang');
-      let lang = (getLangFromUrl || saved || 'zh').toLowerCase().startsWith('en') ? 'en' : 'zh';
+      // 默认使用英文版；URL ?lang= 或 localStorage 可覆盖
+      let lang = (getLangFromUrl || saved || 'en').toLowerCase().startsWith('en') ? 'en' : 'zh';
 
       const dict = {
         zh: {
