@@ -2,6 +2,10 @@ theme: jekyll-theme-minimal
 title: AI Search Pro
 description: 精选最佳 AI 工具和应用
 
+# Jekyll 配置
+source: docs
+permalink: /:title/
+
 # 多语言配置
 languages: ["zh", "en"]
 default_lang: "zh"
@@ -30,7 +34,7 @@ t:
       featured: "热门推荐 Featured Picks"
       featured_sub: "人工精选/热度靠前 · 快速上手"
       updates: "今日/本周更新 Today / This Week"
-      updates_sub: "持续新增与校准，体现"每日更新"的承诺"
+      updates_sub: "持续新增与校准，体现&quot;每日更新&quot;的承诺"
       use_cases: "使用场景 Use Cases"
       use_cases_sub: "按真实需求组织，更贴近新手心智"
       tool_types: "工具类型 Tool Types"
