@@ -144,7 +144,23 @@
       urls = urls.filter(function (u) { return !(u || '').includes('/search/'); });
 
       return runWithConcurrency(urls, function (u) {
-        var full = u.startsWith('http') ? u : (baseurl + u);
+        var full;
+        try {
+          if (/^https?:\/\//i.test(u)) {
+            full = u;
+          } else if (baseurl && u.indexOf(baseurl + '/') === 0) {
+            // u 已包含 baseurl，直接使用
+            full = u;
+          } else if (u.charAt(0) === '/') {
+            // 站点根路径
+            full = u;
+          } else {
+            // 相对路径，拼接 baseurl
+            full = (baseurl || '') + '/' + u.replace(/^\/+/, '');
+          }
+        } catch (e) {
+          full = u;
+        }
         return fetchWithTimeout(full, { credentials: 'same-origin' }, 12000)
           .then(function (res) { return res.text(); })
           .then(function (html) { return extractPageLangContent(html, u); })
