@@ -66,3 +66,4 @@ yarn-error.log*
 # 备份文件
 *.bak
 *.backup
+Gemfile.lock
