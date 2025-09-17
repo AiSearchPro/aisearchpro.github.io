@@ -211,6 +211,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const enText = meta.getAttribute('data-en');
       meta.textContent = lang === 'zh' ? zhText : enText;
     });
+    
+    // 更新updates区域的标题和类型
+    const updateTitles = document.querySelectorAll('.update-title[data-zh][data-en]');
+    updateTitles.forEach(title => {
+      const zhText = title.getAttribute('data-zh');
+      const enText = title.getAttribute('data-en');
+      title.textContent = lang === 'zh' ? zhText : enText;
+    });
+    
+    const updateTypes = document.querySelectorAll('.update-type[data-zh][data-en]');
+    updateTypes.forEach(type => {
+      const zhText = type.getAttribute('data-zh');
+      const enText = type.getAttribute('data-en');
+      type.textContent = lang === 'zh' ? zhText : enText;
+    });
   }
 });
 </script>

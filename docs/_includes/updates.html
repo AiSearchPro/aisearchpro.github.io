@@ -5,20 +5,26 @@
   {%- for u in list -%}
   <div>
     {%- if u.url -%}
-      {%- if u.title[current_lang] -%}
+      {%- if u.title.zh and u.title.en -%}
+        <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%} class="update-title" data-zh="{{ u.title.zh }}" data-en="{{ u.title.en }}">{{ u.title[current_lang] | default: u.title.zh }}</a>
+      {%- elsif u.title[current_lang] -%}
         <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title[current_lang] }}</a>
       {%- else -%}
         <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title }}</a>
       {%- endif -%}
     {%- else -%}
-      {%- if u.title[current_lang] -%}
+      {%- if u.title.zh and u.title.en -%}
+        <span class="update-title" data-zh="{{ u.title.zh }}" data-en="{{ u.title.en }}">{{ u.title[current_lang] | default: u.title.zh }}</span>
+      {%- elsif u.title[current_lang] -%}
         {{ u.title[current_lang] }}
       {%- else -%}
         {{ u.title }}
       {%- endif -%}
     {%- endif -%}
     · <small>
-      {%- if u.type[current_lang] -%}
+      {%- if u.type.zh and u.type.en -%}
+        <span class="update-type" data-zh="{{ u.type.zh }}" data-en="{{ u.type.en }}">{{ u.type[current_lang] | default: u.type.zh }}</span>
+      {%- elsif u.type[current_lang] -%}
         {{ u.type[current_lang] }}
       {%- else -%}
         {{ u.type }}

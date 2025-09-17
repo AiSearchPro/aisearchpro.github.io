@@ -286,6 +286,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const enText = meta.getAttribute('data-en');
       meta.textContent = lang === 'zh' ? zhText : enText;
     });
+    
+    // 更新updates区域的标题和类型
+    const updateTitles = document.querySelectorAll('.update-title[data-zh][data-en]');
+    updateTitles.forEach(title => {
+      const zhText = title.getAttribute('data-zh');
+      const enText = title.getAttribute('data-en');
+      title.textContent = lang === 'zh' ? zhText : enText;
+    });
+    
+    const updateTypes = document.querySelectorAll('.update-type[data-zh][data-en]');
+    updateTypes.forEach(type => {
+      const zhText = type.getAttribute('data-zh');
+      const enText = type.getAttribute('data-en');
+      type.textContent = lang === 'zh' ? zhText : enText;
+    });
   }
 });
 </script>
@@ -327,11 +342,11 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="wrap">
           <h2>今日/本周更新 Today / This Week</h2>
           <div class="sub">持续新增与校准，体现"每日更新"的承诺</div>
-        <div class="list"><div><a href="#">应用 A（写作提效）</a>· <small>新增· 2025-09-17
+        <div class="list"><div><a href="#"class="update-title" data-zh="应用 A（写作提效）" data-en="App A (Writing Efficiency)">应用 A（写作提效）</a>· <small><span class="update-type" data-zh="新增" data-en="New">新增</span>· 2025-09-17
     </small>
-  </div><div><a href="#">工具 B（视频字幕）</a>· <small>升级· 2025-09-16
+  </div><div><a href="#"class="update-title" data-zh="工具 B（视频字幕）" data-en="Tool B (Video Subtitles)">工具 B（视频字幕）</a>· <small><span class="update-type" data-zh="升级" data-en="Updated">升级</span>· 2025-09-16
     </small>
-  </div><div><a href="#">合集：新手必备 AI 工具清单</a>· <small>更新· 2025-09-15
+  </div><div><a href="#"class="update-title" data-zh="合集：新手必备 AI 工具清单" data-en="Collection: Essential AI Tools for Beginners">合集：新手必备 AI 工具清单</a>· <small><span class="update-type" data-zh="更新" data-en="Updated">更新</span>· 2025-09-15
     </small>
   </div></div>
       </div>
