@@ -308,12 +308,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // 更新区域标题和副标题
-        document.querySelectorAll('.section-title[data-zh][data-en]').forEach(element => {
-          element.textContent = element.getAttribute(`data-${lang}`);
-        });
-        document.querySelectorAll('.section-subtitle[data-zh][data-en]').forEach(element => {
-          element.textContent = element.getAttribute(`data-${lang}`);
-        });
+    document.querySelectorAll('.section-title[data-zh][data-en]').forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
+    });
+    document.querySelectorAll('.section-subtitle[data-zh][data-en]').forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
+    });
+    
+    // 更新标签翻译
+    document.querySelectorAll('.tag[data-zh][data-en]').forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
+    });
   }
 });
 </script>
@@ -346,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="grid"><article class="card">
       <h3><a href="#">ChatGPT</a></h3><div class="meta" data-zh="对话式助手 · 文案/翻译/总结" data-en="Conversational AI · Writing/Translation/Summary">对话式助手 · 文案/翻译/总结</div><div class="tags"><span class="tag">GPT‑4o</span><span class="tag">Web</span><span class="tag">Freemium</span></div></article><article class="card">
       <h3><a href="#">MidJourney</a></h3><div class="meta" data-zh="图像生成 · 品质优秀" data-en="Image Generation · High Quality">图像生成 · 品质优秀</div><div class="tags"><span class="tag">MJ v6</span><span class="tag">Discord</span><span class="tag">Subscription</span></div></article><article class="card">
-      <h3><a href="#">Notion AI</a></h3><div class="meta" data-zh="知识管理 · 笔记与写作" data-en="Knowledge Management · Notes & Writing">知识管理 · 笔记与写作</div><div class="tags"><span class="tag">Web</span><span class="tag">中文良好</span></div></article></div>
+      <h3><a href="#">Notion AI</a></h3><div class="meta" data-zh="知识管理 · 笔记与写作" data-en="Knowledge Management · Notes & Writing">知识管理 · 笔记与写作</div><div class="tags"><span class="tag">Web</span><span class="tag" data-zh="中文良好" data-en="Chinese Support">中文良好</span></div></article></div>
       </div>
     </section>
 

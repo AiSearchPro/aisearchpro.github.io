@@ -17,4 +17,7 @@ items:
     meta:
       zh: "知识管理 · 笔记与写作"
       en: "Knowledge Management · Notes & Writing"
-    tags: ["Web", "中文良好"]
+    tags: 
+      - "Web"
+      - zh: "中文良好"
+        en: "Chinese Support"

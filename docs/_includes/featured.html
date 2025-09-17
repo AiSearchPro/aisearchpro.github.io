@@ -17,7 +17,11 @@
       {%- if item.tags -%}
       <div class="tags">
         {%- for tag in item.tags -%}
-        <span class="tag">{{ tag }}</span>
+          {%- if tag.zh and tag.en -%}
+            <span class="tag" data-zh="{{ tag.zh }}" data-en="{{ tag.en }}">{{ tag[current_lang] | default: tag.zh }}</span>
+          {%- else -%}
+            <span class="tag">{{ tag }}</span>
+          {%- endif -%}
         {%- endfor -%}
       </div>
       {%- endif -%}
