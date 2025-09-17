@@ -1,9 +1,9 @@
 # 首页「今日/本周更新」数据源
 items:
   - title:
-      zh: "新手必备 AI 工具清单"
-      en: "Essential AI Tools for Beginners"
-    url: "#"
+      zh: "合集：新手必备 AI 工具清单"
+      en: "Collection: Essential AI Tools for Beginners"
+    url: "/collections/beginner-essential-ai-tools/"
     type:
       zh: "更新"
       en: "Updated"

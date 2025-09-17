@@ -5,12 +5,14 @@
   {%- for u in list -%}
   <div>
     {%- if u.url -%}
+      {%- assign href = u.url -%}
+      {%- unless u.external -%}{%- assign href = u.url | prepend: site.baseurl -%}{%- endunless -%}
       {%- if u.title.zh and u.title.en -%}
-        <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%} class="update-title" data-zh="{{ u.title.zh }}" data-en="{{ u.title.en }}">{{ u.title[current_lang] | default: u.title.zh }}</a>
+        <a href="{{ href }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%} class="update-title" data-zh="{{ u.title.zh }}" data-en="{{ u.title.en }}">{{ u.title[current_lang] | default: u.title.zh }}</a>
       {%- elsif u.title[current_lang] -%}
-        <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title[current_lang] }}</a>
+        <a href="{{ href }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title[current_lang] }}</a>
       {%- else -%}
-        <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title }}</a>
+        <a href="{{ href }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title }}</a>
       {%- endif -%}
     {%- else -%}
       {%- if u.title.zh and u.title.en -%}

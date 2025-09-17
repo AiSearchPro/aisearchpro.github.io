@@ -381,7 +381,22 @@ document.addEventListener('DOMContentLoaded', function() {
       link.textContent = lang === 'en' ? link.getAttribute('data-en') : link.getAttribute('data-zh');
     });
     
-
-  }
+    // 合集文案页：标题、副标题、返回链接
+    document.querySelectorAll('.article-title[data-zh][data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+    document.querySelectorAll('.article-subtitle[data-zh][data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+    document.querySelectorAll('.back-to-collections[data-zh][data-en]').forEach(link => {
+      link.textContent = link.getAttribute(`data-${lang}`);
+    });
+    
+    // 合集文案页：章节标题与列表项（若带 data-zh/data-en 则切换）
+    document.querySelectorAll('.collection-article [data-zh][data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+ 
+   }
 });
 </script>
