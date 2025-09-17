@@ -1,0 +1,17 @@
+{%- comment -%} 主页：热门推荐卡片渲染（数据：site.data.featured.items） {%- endcomment -%}
+<div class="grid">
+  {%- assign list = include.items | default: site.data.featured.items -%}
+  {%- for item in list -%}
+    <article class="card">
+      <h3><a href="{{ item.url | default: '#' }}"{%- if item.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ item.name }}</a></h3>
+      {%- if item.meta -%}<div class="meta">{{ item.meta }}</div>{%- endif -%}
+      {%- if item.tags -%}
+      <div class="tags">
+        {%- for tag in item.tags -%}
+        <span class="tag">{{ tag }}</span>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
+    </article>
+  {%- endfor -%}
+</div>

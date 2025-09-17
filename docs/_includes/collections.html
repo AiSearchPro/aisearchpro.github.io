@@ -1,0 +1,7 @@
+{%- comment -%} 主页：合集与对比（数据：site.data.collections.items） {%- endcomment -%}
+<div class="list">
+  {%- assign list = include.items | default: site.data.collections.items -%}
+  {%- for c in list -%}
+    <a href="{{ c.url | default: '#' }}"{%- if c.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ c.title }}</a>
+  {%- endfor -%}
+</div>
