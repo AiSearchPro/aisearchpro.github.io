@@ -4,9 +4,9 @@
   {%- assign current_lang = site.default_lang | default: 'zh' -%}
   {%- for g in list -%}
     {%- if g.title[current_lang] -%}
-      <a href="{{ g.url | default: '#' }}"{%- if g.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ g.title[current_lang] }}</a>
+      <a href="{{ g.url | default: '#' }}" class="guide-link" data-zh="{{ g.title.zh }}" data-en="{{ g.title.en }}"{%- if g.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ g.title[current_lang] }}</a>
     {%- else -%}
-      <a href="{{ g.url | default: '#' }}"{%- if g.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ g.title }}</a>
+      <a href="{{ g.url | default: '#' }}" class="guide-link"{%- if g.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ g.title }}</a>
     {%- endif -%}
   {%- endfor -%}
 </div>

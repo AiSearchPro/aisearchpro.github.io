@@ -177,7 +177,7 @@
     <!-- 教程与指南（改为 include 渲染） -->
     <section id="guides">
       <div class="wrap">
-        <h2>{{ site.languages[site.default_lang].sections.guides.title | default: "教程与指南 Guides & Tutorials" }}</h2>
+        <h2 class="section-title" data-zh="教程与指南 Guides & Tutorials" data-en="Guides & Tutorials">{{ site.languages[site.default_lang].sections.guides.title | default: "教程与指南 Guides & Tutorials" }}</h2>
         {% include guides.html %}
       </div>
     </section>
@@ -185,11 +185,11 @@
     <!-- 优惠与价格（暂保留静态示例） -->
     <section id="deals">
       <div class="wrap">
-        <h2>{{ site.languages[site.default_lang].sections.deals.title | default: "优惠与价格 Deals & Pricing" }}</h2>
+        <h2 class="section-title" data-zh="优惠与价格 Deals & Pricing" data-en="Deals & Pricing">{{ site.languages[site.default_lang].sections.deals.title | default: "优惠与价格 Deals & Pricing" }}</h2>
         <div class="list">
-          <a href="#">限时优惠：年度订阅 8 折合集</a>
-          <a href="#">学生/教育优惠合集</a>
-          <a href="#">开源/自建：零成本方案大全</a>
+          <a href="#" class="deal-link" data-zh="限时优惠：年度订阅 8 折合集" data-en="Limited Time Offer: 20% Off Annual Subscription Bundle">限时优惠：年度订阅 8 折合集</a>
+          <a href="#" class="deal-link" data-zh="学生/教育优惠合集" data-en="Student/Education Discount Bundle">学生/教育优惠合集</a>
+          <a href="#" class="deal-link" data-zh="开源/自建：零成本方案大全" data-en="Open Source/Self-hosted: Complete Zero-cost Solutions">开源/自建：零成本方案大全</a>
         </div>
       </div>
     </section>
