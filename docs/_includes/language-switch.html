@@ -147,13 +147,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // 更新导航
     const navLinks = document.querySelectorAll('.nav a');
     navLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href === '#featured') link.textContent = t.nav.featured;
-      else if (href === '#updates') link.textContent = t.nav.updates;
-      else if (href === '#use-cases') link.textContent = t.nav.use_cases;
-      else if (href === '#tool-types') link.textContent = t.nav.tool_types;
-      else if (href === '#collections') link.textContent = t.nav.collections;
-      else if (href === '#guides') link.textContent = t.nav.guides;
+      // 兼容带 baseurl 的完整链接，统一基于 hash 判断
+      const hash = link.hash || (() => {
+        const href = link.getAttribute('href') || '';
+        const idx = href.indexOf('#');
+        return idx >= 0 ? href.slice(idx) : '';
+      })();
+      if (hash === '#featured') link.textContent = t.nav.featured;
+      else if (hash === '#updates') link.textContent = t.nav.updates;
+      else if (hash === '#use-cases') link.textContent = t.nav.use_cases;
+      else if (hash === '#tool-types') link.textContent = t.nav.tool_types;
+      else if (hash === '#collections') link.textContent = t.nav.collections;
+      else if (hash === '#guides') link.textContent = t.nav.guides;
     });
     
     // 更新主要内容
@@ -243,6 +248,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // 更新工具类型卡片标题
     document.querySelectorAll('.tool-type-title[data-zh][data-en]').forEach(element => {
       element.textContent = element.getAttribute(`data-${lang}`);
+    });
+    
+    // 更新工具类型子页面标题和描述
+    document.querySelectorAll('.category-title[data-zh][data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+    document.querySelectorAll('.category-description[data-zh][data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
+    document.querySelectorAll('.tool-description[data-zh][data-en]').forEach(el => {
+      el.textContent = el.getAttribute(`data-${lang}`);
     });
     
     // 更新合集链接标题

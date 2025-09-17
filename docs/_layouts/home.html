@@ -79,8 +79,7 @@
   </header>
 
   <main>
--    {% unless page.use_case %}
-+    {% unless page.use_case or page.tool_type %}
+    {% unless page.use_case or page.tool_type %}
       <!-- Hero 区块 -->
       <section class="hero">
       <div class="wrap">
@@ -121,19 +120,19 @@
         <h2 class="section-title" data-zh="使用场景" data-en="Use Cases">{{ site.languages[site.default_lang].sections.use_cases.title | default: "使用场景" }}</h2>
         <div class="sub section-subtitle" data-zh="按真实需求组织，更贴近新手心智" data-en="Organized by real needs, more beginner-friendly">{{ site.languages[site.default_lang].sections.use_cases.subtitle | default: "按真实需求组织，更贴近新手心智" }}</div>
         <div class="grid">
-          <a href="/office" class="card">
+          <a href="{{ site.baseurl | default: '' }}/office" class="card">
             <h3 class="use-case-title" data-zh="办公与效率" data-en="Office & Productivity">{{ site.languages[site.default_lang].sections.use_cases.office | default: "办公与效率" }}</h3>
           </a>
-          <a href="/programming" class="card">
+          <a href="{{ site.baseurl | default: '' }}/programming" class="card">
             <h3 class="use-case-title" data-zh="编程与代码" data-en="Programming & Code">{{ site.languages[site.default_lang].sections.use_cases.programming | default: "编程与代码" }}</h3>
           </a>
-          <a href="/creative" class="card">
+          <a href="{{ site.baseurl | default: '' }}/creative" class="card">
             <h3 class="use-case-title" data-zh="创意与设计" data-en="Creative & Design">{{ site.languages[site.default_lang].sections.use_cases.creative | default: "创意与设计" }}</h3>
           </a>
-          <a href="/learning" class="card">
+          <a href="{{ site.baseurl | default: '' }}/learning" class="card">
             <h3 class="use-case-title" data-zh="学习与研究" data-en="Learning & Research">{{ site.languages[site.default_lang].sections.use_cases.learning | default: "学习与研究" }}</h3>
           </a>
-          <a href="/entertainment" class="card">
+          <a href="{{ site.baseurl | default: '' }}/entertainment" class="card">
             <h3 class="use-case-title" data-zh="娱乐与生活" data-en="Entertainment & Life">{{ site.languages[site.default_lang].sections.use_cases.entertainment | default: "娱乐与生活" }}</h3>
           </a>
         </div>
@@ -146,22 +145,22 @@
         <h2 class="section-title" data-zh="工具类型" data-en="Tool Types">{{ site.languages[site.default_lang].sections.tool_types.title | default: "工具类型" }}</h2>
         <div class="sub section-subtitle" data-zh="按产品形态/使用方式划分" data-en="Categorized by product form/usage method">{{ site.languages[site.default_lang].sections.tool_types.subtitle | default: "按产品形态/使用方式划分" }}</div>
         <div class="grid">
-          <a href="/chatbots" class="card">
+          <a href="{{ site.baseurl | default: '' }}/chatbots" class="card">
             <h3 class="tool-type-title" data-zh="对话机器人" data-en="Chatbots">{{ site.languages[site.default_lang].sections.tool_types.chatbots | default: "对话机器人" }}</h3>
           </a>
-          <a href="/image-gen" class="card">
+          <a href="{{ site.baseurl | default: '' }}/image-gen" class="card">
             <h3 class="tool-type-title" data-zh="图像生成" data-en="Image Generation">{{ site.languages[site.default_lang].sections.tool_types.image_gen | default: "图像生成" }}</h3>
           </a>
-          <a href="/video-gen" class="card">
+          <a href="{{ site.baseurl | default: '' }}/video-gen" class="card">
             <h3 class="tool-type-title" data-zh="视频生成" data-en="Video Generation">{{ site.languages[site.default_lang].sections.tool_types.video_gen | default: "视频生成" }}</h3>
           </a>
-          <a href="/audio-gen" class="card">
+          <a href="{{ site.baseurl | default: '' }}/audio-gen" class="card">
             <h3 class="tool-type-title" data-zh="音频生成" data-en="Audio Generation">{{ site.languages[site.default_lang].sections.tool_types.audio_gen | default: "音频生成" }}</h3>
           </a>
-          <a href="/text-gen" class="card">
+          <a href="{{ site.baseurl | default: '' }}/text-gen" class="card">
             <h3 class="tool-type-title" data-zh="文本生成" data-en="Text Generation">{{ site.languages[site.default_lang].sections.tool_types.text_gen | default: "文本生成" }}</h3>
           </a>
-          <a href="/code-gen" class="card">
+          <a href="{{ site.baseurl | default: '' }}/code-gen" class="card">
             <h3 class="tool-type-title" data-zh="代码生成" data-en="Code Generation">{{ site.languages[site.default_lang].sections.tool_types.code_gen | default: "代码生成" }}</h3>
           </a>
         </div>
