@@ -1,3 +1,10 @@
 theme: jekyll-theme-minimal
 title: AI Search Pro
 description: 精选最佳 AI 工具和应用
+plugins:
+  - jekyll-sitemap
+# 生成 sitemap.xml，方便搜索引擎抓取
+
+url: https://aisearchpro.github.io
+baseurl: ""
+# 上述两者用于 canonical 与站点地图生成
