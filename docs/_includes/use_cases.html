@@ -6,17 +6,20 @@
 {%- if category_data -%}
 <div class="category-detail">
   <div class="wrap">
-    <h2 class="category-title">{{ category_data.title[current_lang] | default: category_data.title.zh }}</h2>
-    <p class="category-description">{{ category_data.description[current_lang] | default: category_data.description.zh }}</p>
+    <!-- 分类标题与描述：接入 data-zh/data-en 供前端切换 -->
+    <h2 class="category-title" data-zh="{{ category_data.title.zh }}" data-en="{{ category_data.title.en }}">{{ category_data.title[current_lang] | default: category_data.title.zh }}</h2>
+    <p class="category-description" data-zh="{{ category_data.description.zh }}" data-en="{{ category_data.description.en }}">{{ category_data.description[current_lang] | default: category_data.description.zh }}</p>
     
     <div class="tools-grid">
       {%- for tool in category_data.tools -%}
         <article class="tool-card">
           <h3><a href="{{ tool.url }}" target="_blank" rel="noopener">{{ tool.name }}</a></h3>
-          <p class="tool-description">{{ tool.description[current_lang] | default: tool.description.zh }}</p>
+          <!-- 工具描述：接入 data-zh/data-en 供前端切换 -->
+          <p class="tool-description" data-zh="{{ tool.description.zh }}" data-en="{{ tool.description.en }}">{{ tool.description[current_lang] | default: tool.description.zh }}</p>
           {%- if tool.tags -%}
           <div class="tool-tags">
             {%- for tag in tool.tags -%}
+              <!-- tags 可能是纯中文字符串，这里先原样输出；前端脚本将为无 data-* 的标签提供翻译兜底 -->
               <span class="tag">{{ tag }}</span>
             {%- endfor -%}
           </div>
@@ -26,17 +29,17 @@
     </div>
     
     <div class="back-link">
-      <!-- 从子页面返回首页的使用场景区块，需带上 baseurl -->
-      <a href="{{ site.baseurl | default: '' }}/#use-cases">← 返回使用场景</a>
+      <!-- 从子页面返回首页的使用场景区块，带上 baseurl，并提供中英文文案 -->
+      <a href="{{ site.baseurl | default: '' }}/#use-cases" class="back-to-use-cases" data-zh="← 返回使用场景" data-en="← Back to Use Cases">← 返回使用场景</a>
     </div>
   </div>
 </div>
 {%- else -%}
 <div class="category-not-found">
   <div class="wrap">
-    <h2>分类未找到</h2>
-    <p>抱歉，请求的使用场景分类不存在。</p>
-    <a href="#use-cases">← 返回使用场景</a>
+    <h2 class="category-title" data-zh="分类未找到" data-en="Category Not Found">分类未找到</h2>
+    <p class="category-description" data-zh="抱歉，请求的使用场景分类不存在。" data-en="Sorry, the requested use case category does not exist.">抱歉，请求的使用场景分类不存在。</p>
+    <a href="{{ site.baseurl | default: '' }}/#use-cases" class="back-to-use-cases" data-zh="← 返回使用场景" data-en="← Back to Use Cases">← 返回使用场景</a>
   </div>
 </div>
 {%- endif -%}

@@ -139,6 +139,50 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
     
+    // 标签兜底翻译字典（中英互译）
+    const tagDict = {
+      '文档': { zh: '文档', en: 'Documents' },
+      '邮件': { zh: '邮件', en: 'Email' },
+      '会议': { zh: '会议', en: 'Meetings' },
+      '笔记': { zh: '笔记', en: 'Notes' },
+      '管理': { zh: '管理', en: 'Management' },
+      '知识库': { zh: '知识库', en: 'Knowledge Base' },
+      '写作': { zh: '写作', en: 'Writing' },
+      '语法': { zh: '语法', en: 'Grammar' },
+      '英文': { zh: '英文', en: 'English' },
+      '代码补全': { zh: '代码补全', en: 'Code Completion' },
+      '编程': { zh: '编程', en: 'Programming' },
+      '编辑器': { zh: '编辑器', en: 'Editor' },
+      'AI编程': { zh: 'AI编程', en: 'AI Coding' },
+      '开发': { zh: '开发', en: 'Development' },
+      '在线编程': { zh: '在线编程', en: 'Online Coding' },
+      '协作': { zh: '协作', en: 'Collaboration' },
+      '学习': { zh: '学习', en: 'Learning' },
+      '图像生成': { zh: '图像生成', en: 'Image Generation' },
+      '艺术': { zh: '艺术', en: 'Art' },
+      '创意': { zh: '创意', en: 'Creative' },
+      '设计': { zh: '设计', en: 'Design' },
+      '模板': { zh: '模板', en: 'Templates' },
+      '图像': { zh: '图像', en: 'Images' },
+      '搜索': { zh: '搜索', en: 'Search' },
+      '研究': { zh: '研究', en: 'Research' },
+      '分析': { zh: '分析', en: 'Analysis' },
+      '学术': { zh: '学术', en: 'Academic' },
+      '学习卡片': { zh: '学习卡片', en: 'Flashcards' },
+      '记忆': { zh: '记忆', en: 'Memory' },
+      '训练': { zh: '训练', en: 'Training' },
+      '音乐生成': { zh: '音乐生成', en: 'Music Generation' },
+      '创作': { zh: '创作', en: 'Creation' },
+      '娱乐': { zh: '娱乐', en: 'Entertainment' },
+      '视频生成': { zh: '视频生成', en: 'Video Generation' },
+      '编辑': { zh: '编辑', en: 'Editing' },
+      '角色扮演': { zh: '角色扮演', en: 'Roleplay' },
+      '对话': { zh: '对话', en: 'Chat' },
+      'GitHub': { zh: 'GitHub', en: 'GitHub' }
+    };
+    // 反向映射（英文->中文）
+    const reverseTagDict = Object.fromEntries(Object.entries(tagDict).map(([zh, pair]) => [pair.en, zh]));
+
     const t = translations[lang];
     
     // 更新页面标题
@@ -228,11 +272,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 更新Use Cases区域的标题
-        document.querySelectorAll('.use-case-title[data-zh][data-en]').forEach(element => {
-          element.textContent = element.getAttribute(`data-${lang}`);
-        });
+    document.querySelectorAll('.use-case-title[data-zh][data-en]').forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
+    });
 
-        // 更新区域标题和副标题
+    // 更新区域标题和副标题
     document.querySelectorAll('.section-title[data-zh][data-en]').forEach(element => {
       element.textContent = element.getAttribute(`data-${lang}`);
     });
@@ -240,9 +284,21 @@ document.addEventListener('DOMContentLoaded', function() {
       element.textContent = element.getAttribute(`data-${lang}`);
     });
     
-    // 更新标签翻译
+    // 更新标签翻译（优先使用 data- 属性）
     document.querySelectorAll('.tag[data-zh][data-en]').forEach(element => {
       element.textContent = element.getAttribute(`data-${lang}`);
+    });
+    // 对没有 data-* 的标签使用兜底字典
+    document.querySelectorAll('.tool-tags .tag:not([data-zh])').forEach(element => {
+      const raw = (element.textContent || '').trim();
+      if (!raw) return;
+      if (lang === 'en') {
+        // 中文 -> 英文
+        if (tagDict[raw]) element.textContent = tagDict[raw].en;
+      } else {
+        // 英文 -> 中文
+        if (reverseTagDict[raw]) element.textContent = reverseTagDict[raw];
+      }
     });
     
     // 更新工具类型卡片标题
@@ -250,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
       element.textContent = element.getAttribute(`data-${lang}`);
     });
     
-    // 更新工具类型子页面标题和描述
+    // 更新工具类型/使用场景子页面标题、描述与工具描述
     document.querySelectorAll('.category-title[data-zh][data-en]').forEach(el => {
       el.textContent = el.getAttribute(`data-${lang}`);
     });
@@ -259,6 +315,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     document.querySelectorAll('.tool-description[data-zh][data-en]').forEach(el => {
       el.textContent = el.getAttribute(`data-${lang}`);
+    });
+
+    // 更新“返回使用场景”链接
+    document.querySelectorAll('.back-to-use-cases[data-zh][data-en]').forEach(link => {
+      link.textContent = link.getAttribute(`data-${lang}`);
     });
     
     // 更新合集链接标题
