@@ -79,9 +79,10 @@
   </header>
 
   <main>
-    {% unless page.use_case %}
-    <!-- Hero 区块 -->
-    <section class="hero">
+-    {% unless page.use_case %}
++    {% unless page.use_case or page.tool_type %}
+      <!-- Hero 区块 -->
+      <section class="hero">
       <div class="wrap">
         <h1>{{ site.languages[site.default_lang].hero.title | default: "精选最佳 AI 工具与应用 · 每日更新" }}</h1>
         <p>{{ site.languages[site.default_lang].hero.subtitle | default: "按使用场景与工具类型分类，帮助你以更低成本、更高效率找到合适的 AI 解决方案。支持中文优先、免登录/免信用卡筛选，覆盖 ChatGPT、Claude、Gemini、Midjourney、SDXL 等主流模型。" }}</p>
