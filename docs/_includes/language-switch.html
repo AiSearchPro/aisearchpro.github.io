@@ -260,10 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
       link.textContent = lang === 'en' ? link.getAttribute('data-en') : link.getAttribute('data-zh');
     });
     
-    // 更新优惠价格链接标题
-    document.querySelectorAll('.deal-link[data-zh][data-en]').forEach(link => {
-      link.textContent = lang === 'en' ? link.getAttribute('data-en') : link.getAttribute('data-zh');
-    });
+
   }
 });
 </script>
