@@ -65,12 +65,13 @@
       <div class="brand">AI Search Pro</div>
       <div class="nav-container">
         <nav class="nav">
-          <a href="#featured">{{ site.languages[site.default_lang].nav.featured | default: "热门" }}</a>
-          <a href="#updates">{{ site.languages[site.default_lang].nav.updates | default: "更新" }}</a>
-          <a href="#use-cases">{{ site.languages[site.default_lang].nav.use_cases | default: "使用场景" }}</a>
-          <a href="#tool-types">{{ site.languages[site.default_lang].nav.tool_types | default: "工具类型" }}</a>
-          <a href="#collections">{{ site.languages[site.default_lang].nav.collections | default: "合集" }}</a>
-          <a href="#guides">{{ site.languages[site.default_lang].nav.guides | default: "教程" }}</a>
+          <!-- 将锚点改为站点根锚点，确保在子页面也能正确跳转到首页对应区块 -->
+          <a href="{{ site.baseurl | default: '' }}/#featured">{{ site.languages[site.default_lang].nav.featured | default: "热门" }}</a>
+          <a href="{{ site.baseurl | default: '' }}/#updates">{{ site.languages[site.default_lang].nav.updates | default: "更新" }}</a>
+          <a href="{{ site.baseurl | default: '' }}/#use-cases">{{ site.languages[site.default_lang].nav.use_cases | default: "使用场景" }}</a>
+          <a href="{{ site.baseurl | default: '' }}/#tool-types">{{ site.languages[site.default_lang].nav.tool_types | default: "工具类型" }}</a>
+          <a href="{{ site.baseurl | default: '' }}/#collections">{{ site.languages[site.default_lang].nav.collections | default: "合集" }}</a>
+          <a href="{{ site.baseurl | default: '' }}/#guides">{{ site.languages[site.default_lang].nav.guides | default: "教程" }}</a>
         </nav>
         {% include language-switch.html %}
       </div>
@@ -78,13 +79,14 @@
   </header>
 
   <main>
+    {% unless page.use_case %}
     <!-- Hero 区块 -->
     <section class="hero">
       <div class="wrap">
         <h1>{{ site.languages[site.default_lang].hero.title | default: "精选最佳 AI 工具与应用 · 每日更新" }}</h1>
         <p>{{ site.languages[site.default_lang].hero.subtitle | default: "按使用场景与工具类型分类，帮助你以更低成本、更高效率找到合适的 AI 解决方案。支持中文优先、免登录/免信用卡筛选，覆盖 ChatGPT、Claude、Gemini、Midjourney、SDXL 等主流模型。" }}</p>
         <div class="cta">
-          <a class="btn primary" href="#featured">{{ site.languages[site.default_lang].buttons.discover | default: "立即发现工具" }}</a>
+          <a class="btn primary" href="{{ site.baseurl | default: '' }}/#featured">{{ site.languages[site.default_lang].buttons.discover | default: "立即发现工具" }}</a>
           <a class="btn" href="https://github.com/aisearchpro/aisearchpro.github.io/issues/new?template=submit-tool.md" target="_blank" rel="noopener">{{ site.languages[site.default_lang].buttons.submit | default: "提交/推荐工具" }}</a>
         </div>
         <div class="search">
@@ -112,7 +114,7 @@
       </div>
     </section>
 
-    <!-- 使用场景（暂保留静态示例） -->
+    <!-- 使用场景（链接到各自子页面） -->
     <section id="use-cases">
       <div class="wrap">
         <h2 class="section-title" data-zh="使用场景" data-en="Use Cases">{{ site.languages[site.default_lang].sections.use_cases.title | default: "使用场景" }}</h2>
@@ -180,7 +182,14 @@
         {% include guides.html %}
       </div>
     </section>
+    {% endunless %}
 
+    <!-- 页面内容承载区（用于子页面渲染 use_cases.html 等） -->
+    <section id="page-content">
+      <div class="wrap">
+        {{ content }}
+      </div>
+    </section>
 
   </main>
 
@@ -189,5 +198,29 @@
       <div>{{ site.languages[site.default_lang].footer.copyright | default: "© AI Search Pro · 每日更新" }} · <a href="https://github.com/aisearchpro/aisearchpro.github.io" target="_blank" rel="noopener">GitHub</a></div>
     </div>
   </footer>
+  <script>
+    function performSearch() {
+      const input = document.getElementById('search-input');
+      if (!input) return;
+      const q = input.value.trim();
+      if (!q) {
+        input.focus();
+        return;
+      }
+      const encoded = encodeURIComponent(q);
+      const internal = '/search?q=' + encoded;
+      window.location.href = internal;
+    }
+    (function() {
+      const input = document.getElementById('search-input');
+      if (input) {
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') {
+            performSearch();
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
