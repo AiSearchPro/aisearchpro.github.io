@@ -10,13 +10,6 @@
 
 [https://aisearchpro.github.io/](https://aisearchpro.github.io/)
 
-## 内容分类
-
-*   [AI 大模型应用](./pages/ai-apps.md)
-*   [精选 AI 工具](./pages/ai-tools.md)
-*   [ChatGPT](./pages/chatgpt.md)
-*   [MidJourney](./pages/midjourney.md)
-
 ## 如何贡献
 
 欢迎您通过提交 Pull Request 的方式为我们贡献内容。
