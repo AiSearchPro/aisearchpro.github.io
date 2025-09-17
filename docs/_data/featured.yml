@@ -1,19 +1,19 @@
 # 首页「热门推荐」数据源（支持每日维护）
 items:
   - name: "ChatGPT"
-    url: "#"
+    url: "https://chatgpt.com/"
     meta:
       zh: "对话式助手 · 文案/翻译/总结"
       en: "Conversational AI · Writing/Translation/Summary"
     tags: ["GPT‑4o", "Web", "Freemium"]
   - name: "MidJourney"
-    url: "#"
+    url: "https://www.midjourney.com/"
     meta:
       zh: "图像生成 · 品质优秀"
       en: "Image Generation · High Quality"
     tags: ["MJ v6", "Discord", "Subscription"]
   - name: "Notion AI"
-    url: "#"
+    url: "https://www.notion.so/ai"
     meta:
       zh: "知识管理 · 笔记与写作"
       en: "Knowledge Management · Notes & Writing"
