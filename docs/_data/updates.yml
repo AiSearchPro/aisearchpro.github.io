@@ -1,14 +1,26 @@
 # 首页「今日/本周更新」数据源
 items:
-  - title: "应用 A（写作提效）"
+  - title:
+      zh: "应用 A（写作提效）"
+      en: "App A (Writing Efficiency)"
     url: "#"
-    type: "新增"
+    type:
+      zh: "新增"
+      en: "New"
     date: "2025-09-17"
-  - title: "工具 B（视频字幕）"
+  - title:
+      zh: "工具 B（视频字幕）"
+      en: "Tool B (Video Subtitles)"
     url: "#"
-    type: "升级"
+    type:
+      zh: "升级"
+      en: "Updated"
     date: "2025-09-16"
-  - title: "合集：新手必备 AI 工具清单"
+  - title:
+      zh: "合集：新手必备 AI 工具清单"
+      en: "Collection: Essential AI Tools for Beginners"
     url: "#"
-    type: "更新"
+    type:
+      zh: "更新"
+      en: "Updated"
     date: "2025-09-15"

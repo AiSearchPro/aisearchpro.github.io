@@ -1,0 +1,120 @@
+# 翻译数据文件
+zh:
+  site:
+    title: "AI Search Pro · 精选 AI 工具与应用 · 每日更新"
+    description: "精选最佳 AI 工具与应用，按使用场景与工具类型分类，帮助你以更低成本、更高效率找到合适的 AI 解决方案。支持中文优先、免登录/免信用卡筛选。"
+  
+  nav:
+    featured: "热门"
+    updates: "更新"
+    use_cases: "使用场景"
+    tool_types: "工具类型"
+    collections: "合集"
+    guides: "教程"
+    deals: "优惠"
+  
+  hero:
+    title: "精选最佳 AI 工具与应用 · 每日更新"
+    subtitle: "按使用场景与工具类型分类，帮助你以更低成本、更高效率找到合适的 AI 解决方案。支持中文优先、免登录/免信用卡筛选，覆盖 ChatGPT、Claude、Gemini、Midjourney、SDXL 等主流模型。"
+  
+  buttons:
+    discover: "立即发现工具"
+    submit: "提交/推荐工具"
+    search: "搜索"
+  
+  search:
+    placeholder: "搜索关键词（如：写作、绘图、字幕、开源、中文、免费）"
+  
+  sections:
+    featured:
+      title: "热门推荐 Featured Picks"
+      subtitle: "人工精选/热度靠前 · 快速上手"
+    updates:
+      title: "今日/本周更新 Today / This Week"
+      subtitle: "持续新增与校准，体现\"每日更新\"的承诺"
+    use_cases:
+      title: "使用场景 Use Cases"
+      subtitle: "按真实需求组织，更贴近新手心智"
+      office: "办公与效率"
+      programming: "编程与代码"
+      creative: "创意与设计"
+      learning: "学习与研究"
+      entertainment: "娱乐与生活"
+    tool_types:
+      title: "工具类型 Tool Types"
+      subtitle: "按产品形态/使用方式划分"
+      chatbots: "对话机器人"
+      image_gen: "图像生成"
+      video_gen: "视频生成"
+      audio_gen: "音频生成"
+      text_gen: "文本生成"
+      code_gen: "代码生成"
+    collections:
+      title: "合集与对比 Collections & Comparisons"
+    guides:
+      title: "教程与指南 Guides & Tutorials"
+    deals:
+      title: "优惠与价格 Deals & Pricing"
+  
+  footer:
+    copyright: "© AI Search Pro · 每日更新"
+
+en:
+  site:
+    title: "AI Search Pro · Curated AI Tools & Applications · Daily Updates"
+    description: "Curated best AI tools & applications, organized by use cases and tool types to help you find the right AI solutions with lower cost and higher efficiency. Supports Chinese-first, no-login/no-credit-card filtering."
+  
+  nav:
+    featured: "Featured"
+    updates: "Updates"
+    use_cases: "Use Cases"
+    tool_types: "Tool Types"
+    collections: "Collections"
+    guides: "Guides"
+    deals: "Deals"
+  
+  hero:
+    title: "Curated Best AI Tools & Applications · Daily Updates"
+    subtitle: "Organized by use cases and tool types to help you find the right AI solutions with lower cost and higher efficiency. Supports Chinese-first, no-login/no-credit-card filtering, covering mainstream models like ChatGPT, Claude, Gemini, Midjourney, SDXL."
+  
+  buttons:
+    discover: "Discover Tools Now"
+    submit: "Submit/Recommend Tools"
+    search: "Search"
+  
+  search:
+    placeholder: "Search keywords (e.g.: writing, drawing, subtitles, open source, Chinese, free)"
+  
+  sections:
+    featured:
+      title: "Featured Picks 热门推荐"
+      subtitle: "Hand-picked / Top trending · Quick start"
+    updates:
+      title: "Today / This Week 今日/本周更新"
+      subtitle: "Continuous additions and calibrations, demonstrating our \\\"daily update\\\" commitment"
+    use_cases:
+      title: "Use Cases 使用场景"
+      subtitle: "Organized by real needs, more beginner-friendly"
+      office: "Office & Productivity"
+      programming: "Programming & Code"
+      creative: "Creative & Design"
+      learning: "Learning & Research"
+      entertainment: "Entertainment & Life"
+    tool_types:
+      title: "Tool Types 工具类型"
+      subtitle: "Categorized by product form/usage method"
+      chatbots: "Chatbots"
+      image_gen: "Image Generation"
+      video_gen: "Video Generation"
+      audio_gen: "Audio Generation"
+      text_gen: "Text Generation"
+      code_gen: "Code Generation"
+    collections:
+      title: "Collections & Comparisons 合集与对比"
+    guides:
+      title: "Guides & Tutorials 教程与指南"
+    deals:
+      title: "Deals & Pricing 优惠与价格"
+  
+  footer:
+    copyright: "© AI Search Pro · Daily Updates"

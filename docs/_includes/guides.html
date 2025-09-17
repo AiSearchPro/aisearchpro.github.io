@@ -1,0 +1,12 @@
+{%- comment -%} 主页：教程与指南（数据：site.data.guides.items） {%- endcomment -%}
+<div class="list">
+  {%- assign list = include.items | default: site.data.guides.items -%}
+  {%- assign current_lang = site.default_lang | default: 'zh' -%}
+  {%- for g in list -%}
+    {%- if g.title[current_lang] -%}
+      <a href="{{ g.url | default: '#' }}"{%- if g.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ g.title[current_lang] }}</a>
+    {%- else -%}
+      <a href="{{ g.url | default: '#' }}"{%- if g.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ g.title }}</a>
+    {%- endif -%}
+  {%- endfor -%}
+</div>

@@ -1,0 +1,216 @@
+<!-- 语言切换组件 -->
+<div class="language-switch">
+  <button class="lang-btn" data-lang="zh" {% if site.default_lang == 'zh' %}class="active"{% endif %}>
+    中文
+  </button>
+  <button class="lang-btn" data-lang="en" {% if site.default_lang == 'en' %}class="active"{% endif %}>
+    English
+  </button>
+</div>
+
+<style>
+.language-switch {
+  display: flex;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.lang-btn {
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-btn.active {
+  color: var(--text);
+  background: var(--accent);
+}
+</style>
+
+<script>
+// 语言切换功能
+document.addEventListener('DOMContentLoaded', function() {
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const currentLang = localStorage.getItem('preferred-language') || 'zh';
+  
+  // 设置初始语言状态
+  setLanguage(currentLang);
+  
+  // 绑定切换事件
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const lang = this.dataset.lang;
+      setLanguage(lang);
+      localStorage.setItem('preferred-language', lang);
+    });
+  });
+  
+  function setLanguage(lang) {
+    // 更新按钮状态
+    langButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    
+    // 更新页面内容
+    updatePageContent(lang);
+    
+    // 更新 HTML lang 属性
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  
+  function updatePageContent(lang) {
+    const translations = {
+      zh: {
+        title: 'AI Search Pro · 精选 AI 工具与应用 · 每日更新',
+        tagline: '精选最佳 AI 工具与应用 · 每日更新',
+        subtitle: '按使用场景与工具类型分类，帮助你以更低成本、更高效率找到合适的 AI 解决方案。支持中文优先、免登录/免信用卡筛选，覆盖 ChatGPT、Claude、Gemini、Midjourney、SDXL 等主流模型。',
+        nav: {
+          featured: '热门',
+          updates: '更新',
+          use_cases: '使用场景',
+          tool_types: '工具类型',
+          collections: '合集',
+          guides: '教程',
+          deals: '优惠'
+        },
+        buttons: {
+          discover: '立即发现工具',
+          submit: '提交/推荐工具',
+          search: '搜索'
+        },
+        search_placeholder: '搜索关键词（如：写作、绘图、字幕、开源、中文、免费）',
+        sections: {
+          featured: '热门推荐 Featured Picks',
+          featured_sub: '人工精选/热度靠前 · 快速上手',
+          updates: '今日/本周更新 Today / This Week',
+          updates_sub: '持续新增与校准，体现"每日更新"的承诺',
+          use_cases: '使用场景 Use Cases',
+          use_cases_sub: '按真实需求组织，更贴近新手心智',
+          tool_types: '工具类型 Tool Types',
+          tool_types_sub: '按产品形态/使用方式划分',
+          collections: '合集与对比 Collections & Comparisons',
+          guides: '教程与指南 Guides & Tutorials',
+          deals: '优惠与价格 Deals & Pricing'
+        },
+        footer: '© AI Search Pro · 每日更新'
+      },
+      en: {
+        title: 'AI Search Pro · Curated AI Tools & Applications · Daily Updates',
+        tagline: 'Curated Best AI Tools & Applications · Daily Updates',
+        subtitle: 'Organized by use cases and tool types to help you find the right AI solutions with lower cost and higher efficiency. Supports Chinese-first, no-login/no-credit-card filtering, covering mainstream models like ChatGPT, Claude, Gemini, Midjourney, SDXL.',
+        nav: {
+          featured: 'Featured',
+          updates: 'Updates',
+          use_cases: 'Use Cases',
+          tool_types: 'Tool Types',
+          collections: 'Collections',
+          guides: 'Guides',
+          deals: 'Deals'
+        },
+        buttons: {
+          discover: 'Discover Tools Now',
+          submit: 'Submit/Recommend Tools',
+          search: 'Search'
+        },
+        search_placeholder: 'Search keywords (e.g.: writing, drawing, subtitles, open source, Chinese, free)',
+        sections: {
+          featured: 'Featured Picks 热门推荐',
+          featured_sub: 'Hand-picked / Top trending · Quick start',
+          updates: 'Today / This Week 今日/本周更新',
+          updates_sub: 'Continuous additions and calibrations, demonstrating our "daily update" commitment',
+          use_cases: 'Use Cases 使用场景',
+          use_cases_sub: 'Organized by real needs, more beginner-friendly',
+          tool_types: 'Tool Types 工具类型',
+          tool_types_sub: 'Categorized by product form/usage method',
+          collections: 'Collections & Comparisons 合集与对比',
+          guides: 'Guides & Tutorials 教程与指南',
+          deals: 'Deals & Pricing 优惠与价格'
+        },
+        footer: '© AI Search Pro · Daily Updates'
+      }
+    };
+    
+    const t = translations[lang];
+    
+    // 更新页面标题
+    document.title = t.title;
+    
+    // 更新导航
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === '#featured') link.textContent = t.nav.featured;
+      else if (href === '#updates') link.textContent = t.nav.updates;
+      else if (href === '#use-cases') link.textContent = t.nav.use_cases;
+      else if (href === '#tool-types') link.textContent = t.nav.tool_types;
+      else if (href === '#collections') link.textContent = t.nav.collections;
+      else if (href === '#guides') link.textContent = t.nav.guides;
+      else if (href === '#deals') link.textContent = t.nav.deals;
+    });
+    
+    // 更新主要内容
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) heroTitle.textContent = t.tagline;
+    
+    const heroSubtitle = document.querySelector('.hero p');
+    if (heroSubtitle) heroSubtitle.textContent = t.subtitle;
+    
+    const discoverBtn = document.querySelector('.btn.primary');
+    if (discoverBtn) discoverBtn.textContent = t.buttons.discover;
+    
+    const submitBtn = document.querySelector('.btn:not(.primary)');
+    if (submitBtn) submitBtn.textContent = t.buttons.submit;
+    
+    const searchInput = document.querySelector('.search input');
+    if (searchInput) searchInput.placeholder = t.search_placeholder;
+    
+    const searchBtn = document.querySelector('.search button');
+    if (searchBtn) searchBtn.textContent = t.buttons.search;
+    
+    // 更新各个区块标题
+    const sections = document.querySelectorAll('section h2');
+    sections.forEach(section => {
+      const id = section.parentElement.parentElement.id;
+      if (id && t.sections[id]) {
+        section.textContent = t.sections[id];
+      }
+    });
+    
+    // 更新子标题
+    const subs = document.querySelectorAll('.sub');
+    subs.forEach(sub => {
+      const sectionId = sub.parentElement.parentElement.id;
+      if (sectionId && t.sections[sectionId + '_sub']) {
+        sub.textContent = t.sections[sectionId + '_sub'];
+      }
+    });
+    
+    // 更新页脚
+    const footer = document.querySelector('footer .wrap div');
+    if (footer) {
+      footer.innerHTML = t.footer + ' · <a href="https://github.com/aisearchpro/aisearchpro.github.io" target="_blank" rel="noopener">GitHub</a>';
+    }
+    
+    // 更新工具卡片的meta描述
+    const metaElements = document.querySelectorAll('.meta[data-zh][data-en]');
+    metaElements.forEach(meta => {
+      const zhText = meta.getAttribute('data-zh');
+      const enText = meta.getAttribute('data-en');
+      meta.textContent = lang === 'zh' ? zhText : enText;
+    });
+  }
+});
+</script>

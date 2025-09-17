@@ -1,14 +1,30 @@
 {%- comment -%} 主页：更新列表渲染（数据：site.data.updates.items） {%- endcomment -%}
 <div class="list">
   {%- assign list = include.items | default: site.data.updates.items -%}
+  {%- assign current_lang = site.default_lang | default: 'zh' -%}
   {%- for u in list -%}
   <div>
     {%- if u.url -%}
-      <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title }}</a>
+      {%- if u.title[current_lang] -%}
+        <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title[current_lang] }}</a>
+      {%- else -%}
+        <a href="{{ u.url }}"{%- if u.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ u.title }}</a>
+      {%- endif -%}
     {%- else -%}
-      {{ u.title }}
+      {%- if u.title[current_lang] -%}
+        {{ u.title[current_lang] }}
+      {%- else -%}
+        {{ u.title }}
+      {%- endif -%}
     {%- endif -%}
-    · <small>{{ u.type }} · {{ u.date }}</small>
+    · <small>
+      {%- if u.type[current_lang] -%}
+        {{ u.type[current_lang] }}
+      {%- else -%}
+        {{ u.type }}
+      {%- endif -%}
+      · {{ u.date }}
+    </small>
   </div>
   {%- endfor -%}
 </div>

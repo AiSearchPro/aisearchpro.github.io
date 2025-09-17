@@ -20,6 +20,7 @@
     .topnav { position: sticky; top:0; z-index: 100; backdrop-filter: blur(8px); background: rgba(11,13,18,0.7); border-bottom: 1px solid var(--border); }
     .topnav .wrap { display:flex; align-items:center; justify-content:space-between; height:56px; }
     .brand { font-weight: 700; letter-spacing:.2px; }
+    .nav-container { display: flex; align-items: center; gap: 20px; }
     .nav a { margin-left: 14px; color: var(--muted); }
     .nav a:hover { color: var(--text); }
 
@@ -62,15 +63,233 @@
   <header class="topnav">
     <div class="wrap">
       <div class="brand">AI Search Pro</div>
-      <nav class="nav">
-        <a href="#featured">热门</a>
-        <a href="#updates">更新</a>
-        <a href="#use-cases">使用场景</a>
-        <a href="#tool-types">工具类型</a>
-        <a href="#collections">合集</a>
-        <a href="#guides">教程</a>
-        <a href="#deals">优惠</a>
-      </nav>
+      <div class="nav-container">
+        <nav class="nav">
+          <a href="#featured">热门</a>
+          <a href="#updates">更新</a>
+          <a href="#use-cases">使用场景</a>
+          <a href="#tool-types">工具类型</a>
+          <a href="#collections">合集</a>
+          <a href="#guides">教程</a>
+          <a href="#deals">优惠</a>
+        </nav>
+        <!-- 语言切换组件 -->
+<div class="language-switch">
+  <button class="lang-btn" data-lang="zh" >
+    中文
+  </button>
+  <button class="lang-btn" data-lang="en" >
+    English
+  </button>
+</div>
+
+<style>
+.language-switch {
+  display: flex;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.lang-btn {
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.lang-btn:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-btn.active {
+  color: var(--text);
+  background: var(--accent);
+}
+</style>
+
+<script>
+// 语言切换功能
+document.addEventListener('DOMContentLoaded', function() {
+  const langButtons = document.querySelectorAll('.lang-btn');
+  const currentLang = localStorage.getItem('preferred-language') || 'zh';
+  
+  // 设置初始语言状态
+  setLanguage(currentLang);
+  
+  // 绑定切换事件
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const lang = this.dataset.lang;
+      setLanguage(lang);
+      localStorage.setItem('preferred-language', lang);
+    });
+  });
+  
+  function setLanguage(lang) {
+    // 更新按钮状态
+    langButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+    
+    // 更新页面内容
+    updatePageContent(lang);
+    
+    // 更新 HTML lang 属性
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+  
+  function updatePageContent(lang) {
+    const translations = {
+      zh: {
+        title: 'AI Search Pro · 精选 AI 工具与应用 · 每日更新',
+        tagline: '精选最佳 AI 工具与应用 · 每日更新',
+        subtitle: '按使用场景与工具类型分类，帮助你以更低成本、更高效率找到合适的 AI 解决方案。支持中文优先、免登录/免信用卡筛选，覆盖 ChatGPT、Claude、Gemini、Midjourney、SDXL 等主流模型。',
+        nav: {
+          featured: '热门',
+          updates: '更新',
+          use_cases: '使用场景',
+          tool_types: '工具类型',
+          collections: '合集',
+          guides: '教程',
+          deals: '优惠'
+        },
+        buttons: {
+          discover: '立即发现工具',
+          submit: '提交/推荐工具',
+          search: '搜索'
+        },
+        search_placeholder: '搜索关键词（如：写作、绘图、字幕、开源、中文、免费）',
+        sections: {
+          featured: '热门推荐 Featured Picks',
+          featured_sub: '人工精选/热度靠前 · 快速上手',
+          updates: '今日/本周更新 Today / This Week',
+          updates_sub: '持续新增与校准，体现"每日更新"的承诺',
+          use_cases: '使用场景 Use Cases',
+          use_cases_sub: '按真实需求组织，更贴近新手心智',
+          tool_types: '工具类型 Tool Types',
+          tool_types_sub: '按产品形态/使用方式划分',
+          collections: '合集与对比 Collections & Comparisons',
+          guides: '教程与指南 Guides & Tutorials',
+          deals: '优惠与价格 Deals & Pricing'
+        },
+        footer: '© AI Search Pro · 每日更新'
+      },
+      en: {
+        title: 'AI Search Pro · Curated AI Tools & Applications · Daily Updates',
+        tagline: 'Curated Best AI Tools & Applications · Daily Updates',
+        subtitle: 'Organized by use cases and tool types to help you find the right AI solutions with lower cost and higher efficiency. Supports Chinese-first, no-login/no-credit-card filtering, covering mainstream models like ChatGPT, Claude, Gemini, Midjourney, SDXL.',
+        nav: {
+          featured: 'Featured',
+          updates: 'Updates',
+          use_cases: 'Use Cases',
+          tool_types: 'Tool Types',
+          collections: 'Collections',
+          guides: 'Guides',
+          deals: 'Deals'
+        },
+        buttons: {
+          discover: 'Discover Tools Now',
+          submit: 'Submit/Recommend Tools',
+          search: 'Search'
+        },
+        search_placeholder: 'Search keywords (e.g.: writing, drawing, subtitles, open source, Chinese, free)',
+        sections: {
+          featured: 'Featured Picks 热门推荐',
+          featured_sub: 'Hand-picked / Top trending · Quick start',
+          updates: 'Today / This Week 今日/本周更新',
+          updates_sub: 'Continuous additions and calibrations, demonstrating our "daily update" commitment',
+          use_cases: 'Use Cases 使用场景',
+          use_cases_sub: 'Organized by real needs, more beginner-friendly',
+          tool_types: 'Tool Types 工具类型',
+          tool_types_sub: 'Categorized by product form/usage method',
+          collections: 'Collections & Comparisons 合集与对比',
+          guides: 'Guides & Tutorials 教程与指南',
+          deals: 'Deals & Pricing 优惠与价格'
+        },
+        footer: '© AI Search Pro · Daily Updates'
+      }
+    };
+    
+    const t = translations[lang];
+    
+    // 更新页面标题
+    document.title = t.title;
+    
+    // 更新导航
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === '#featured') link.textContent = t.nav.featured;
+      else if (href === '#updates') link.textContent = t.nav.updates;
+      else if (href === '#use-cases') link.textContent = t.nav.use_cases;
+      else if (href === '#tool-types') link.textContent = t.nav.tool_types;
+      else if (href === '#collections') link.textContent = t.nav.collections;
+      else if (href === '#guides') link.textContent = t.nav.guides;
+      else if (href === '#deals') link.textContent = t.nav.deals;
+    });
+    
+    // 更新主要内容
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) heroTitle.textContent = t.tagline;
+    
+    const heroSubtitle = document.querySelector('.hero p');
+    if (heroSubtitle) heroSubtitle.textContent = t.subtitle;
+    
+    const discoverBtn = document.querySelector('.btn.primary');
+    if (discoverBtn) discoverBtn.textContent = t.buttons.discover;
+    
+    const submitBtn = document.querySelector('.btn:not(.primary)');
+    if (submitBtn) submitBtn.textContent = t.buttons.submit;
+    
+    const searchInput = document.querySelector('.search input');
+    if (searchInput) searchInput.placeholder = t.search_placeholder;
+    
+    const searchBtn = document.querySelector('.search button');
+    if (searchBtn) searchBtn.textContent = t.buttons.search;
+    
+    // 更新各个区块标题
+    const sections = document.querySelectorAll('section h2');
+    sections.forEach(section => {
+      const id = section.parentElement.parentElement.id;
+      if (id && t.sections[id]) {
+        section.textContent = t.sections[id];
+      }
+    });
+    
+    // 更新子标题
+    const subs = document.querySelectorAll('.sub');
+    subs.forEach(sub => {
+      const sectionId = sub.parentElement.parentElement.id;
+      if (sectionId && t.sections[sectionId + '_sub']) {
+        sub.textContent = t.sections[sectionId + '_sub'];
+      }
+    });
+    
+    // 更新页脚
+    const footer = document.querySelector('footer .wrap div');
+    if (footer) {
+      footer.innerHTML = t.footer + ' · <a href="https://github.com/aisearchpro/aisearchpro.github.io" target="_blank" rel="noopener">GitHub</a>';
+    }
+    
+    // 更新工具卡片的meta描述
+    const metaElements = document.querySelectorAll('.meta[data-zh][data-en]');
+    metaElements.forEach(meta => {
+      const zhText = meta.getAttribute('data-zh');
+      const enText = meta.getAttribute('data-en');
+      meta.textContent = lang === 'zh' ? zhText : enText;
+    });
+  }
+});
+</script>
+      </div>
     </div>
   </header>
 
@@ -82,35 +301,38 @@
         <p>按使用场景与工具类型分类，帮助你以更低成本、更高效率找到合适的 AI 解决方案。支持中文优先、免登录/免信用卡筛选，覆盖 ChatGPT、Claude、Gemini、Midjourney、SDXL 等主流模型。</p>
         <div class="cta">
           <a class="btn primary" href="#featured">立即发现工具</a>
-          <a class="btn" href="https://github.com/aisearchpro/aisearchpro.github.io" target="_blank" rel="noopener">提交/推荐工具</a>
+          <a class="btn" href="https://github.com/aisearchpro/aisearchpro.github.io/issues/new?template=submit-tool.md" target="_blank" rel="noopener">提交/推荐工具</a>
         </div>
         <div class="search">
-          <input type="search" placeholder="搜索关键词（如：写作、绘图、字幕、开源、中文、免费）" aria-label="搜索" />
-          <button aria-label="搜索">搜索</button>
+          <input type="text" placeholder="搜索关键词（如：写作、绘图、字幕、开源、中文、免费）" id="search-input">
+          <button onclick="performSearch()">搜索</button>
         </div>
       </div>
     </section>
 
     <!-- 热门推荐（改为 include 渲染） -->
-    <section id="featured">
-      <div class="wrap">
-        <h2>热门推荐 Featured Picks</h2>
-        <p class="sub">人工精选/热度靠前 · 快速上手</p>
+   <section id="featured">
+        <div class="wrap">
+          <h2>热门推荐 Featured Picks</h2>
+          <div class="sub">人工精选/热度靠前 · 快速上手</div>
         <div class="grid"><article class="card">
-      <h3><a href="#">ChatGPT</a></h3><div class="meta">对话式助手 · 文案/翻译/总结</div><div class="tags"><span class="tag">GPT‑4o</span><span class="tag">Web</span><span class="tag">Freemium</span></div></article><article class="card">
-      <h3><a href="#">MidJourney</a></h3><div class="meta">图像生成 · 品质优秀</div><div class="tags"><span class="tag">MJ v6</span><span class="tag">Discord</span><span class="tag">Subscription</span></div></article><article class="card">
-      <h3><a href="#">Notion AI</a></h3><div class="meta">知识管理 · 笔记与写作</div><div class="tags"><span class="tag">Web</span><span class="tag">中文良好</span></div></article></div>
+      <h3><a href="#">ChatGPT</a></h3><div class="meta" data-zh="对话式助手 · 文案/翻译/总结" data-en="Conversational AI · Writing/Translation/Summary">对话式助手 · 文案/翻译/总结</div><div class="tags"><span class="tag">GPT‑4o</span><span class="tag">Web</span><span class="tag">Freemium</span></div></article><article class="card">
+      <h3><a href="#">MidJourney</a></h3><div class="meta" data-zh="图像生成 · 品质优秀" data-en="Image Generation · High Quality">图像生成 · 品质优秀</div><div class="tags"><span class="tag">MJ v6</span><span class="tag">Discord</span><span class="tag">Subscription</span></div></article><article class="card">
+      <h3><a href="#">Notion AI</a></h3><div class="meta" data-zh="知识管理 · 笔记与写作" data-en="Knowledge Management · Notes & Writing">知识管理 · 笔记与写作</div><div class="tags"><span class="tag">Web</span><span class="tag">中文良好</span></div></article></div>
       </div>
     </section>
 
     <!-- 今日/本周更新（改为 include 渲染） -->
-    <section id="updates">
-      <div class="wrap">
-        <h2>今日/本周更新 Today / This Week</h2>
-        <p class="sub">持续新增与校准，体现“每日更新”的承诺</p>
-        <div class="list"><div><a href="#">应用 A（写作提效）</a>· <small>新增 · 2025-09-17</small>
-  </div><div><a href="#">工具 B（视频字幕）</a>· <small>升级 · 2025-09-16</small>
-  </div><div><a href="#">合集：新手必备 AI 工具清单</a>· <small>更新 · 2025-09-15</small>
+   <section id="updates">
+        <div class="wrap">
+          <h2>今日/本周更新 Today / This Week</h2>
+          <div class="sub">持续新增与校准，体现"每日更新"的承诺</div>
+        <div class="list"><div><a href="#">应用 A（写作提效）</a>· <small>新增· 2025-09-17
+    </small>
+  </div><div><a href="#">工具 B（视频字幕）</a>· <small>升级· 2025-09-16
+    </small>
+  </div><div><a href="#">合集：新手必备 AI 工具清单</a>· <small>更新· 2025-09-15
+    </small>
   </div></div>
       </div>
     </section>
@@ -119,56 +341,23 @@
     <section id="use-cases">
       <div class="wrap">
         <h2>使用场景 Use Cases</h2>
-        <p class="sub">按真实需求组织，更贴近新手心智</p>
+        <div class="sub">按真实需求组织，更贴近新手心智</div>
         <div class="grid">
-          <article class="card">
-            <h3>写作与文案</h3>
-            <div class="list">
-              <a href="#">AI 文案助手</a>
-              <a href="#">学术改写工具</a>
-              <a href="#">博客生成器</a>
-            </div>
-          </article>
-          <article class="card">
-            <h3>图片生成/设计</h3>
-            <div class="list">
-              <a href="#">MidJourney</a>
-              <a href="#">Stable Diffusion WebUI</a>
-              <a href="#">品牌视觉生成</a>
-            </div>
-          </article>
-          <article class="card">
-            <h3>视频生成/剪辑</h3>
-            <div class="list">
-              <a href="#">文生视频</a>
-              <a href="#">字幕生成/对齐</a>
-              <a href="#">BGM/配音</a>
-            </div>
-          </article>
-          <article class="card">
-            <h3>语音与字幕</h3>
-            <div class="list">
-              <a href="#">TTS 语音合成</a>
-              <a href="#">STT 语音识别</a>
-              <a href="#">多语言翻译</a>
-            </div>
-          </article>
-          <article class="card">
+          <a href="#office" class="card">
             <h3>办公与效率</h3>
-            <div class="list">
-              <a href="#">邮件/日程助手</a>
-              <a href="#">会议纪要</a>
-              <a href="#">知识库 Q&A</a>
-            </div>
-          </article>
-          <article class="card">
+          </a>
+          <a href="#programming" class="card">
             <h3>编程与代码</h3>
-            <div class="list">
-              <a href="#">代码补全</a>
-              <a href="#">单元测试生成</a>
-              <a href="#">代码审查</a>
-            </div>
-          </article>
+          </a>
+          <a href="#creative" class="card">
+            <h3>创意与设计</h3>
+          </a>
+          <a href="#learning" class="card">
+            <h3>学习与研究</h3>
+          </a>
+          <a href="#entertainment" class="card">
+            <h3>娱乐与生活</h3>
+          </a>
         </div>
       </div>
     </section>
@@ -177,32 +366,26 @@
     <section id="tool-types">
       <div class="wrap">
         <h2>工具类型 Tool Types</h2>
-        <p class="sub">按产品形态/使用方式划分</p>
+        <div class="sub">按产品形态/使用方式划分</div>
         <div class="grid">
-          <article class="card">
-            <h3>聊天/助手</h3>
-            <div class="tags"><span class="tag">ChatGPT</span><span class="tag">Claude</span><span class="tag">Gemini</span></div>
-          </article>
-          <article class="card">
-            <h3>文本生成/改写</h3>
-            <div class="tags"><span class="tag">写作</span><span class="tag">翻译</span><span class="tag">总结</span></div>
-          </article>
-          <article class="card">
-            <h3>图像/视频/语音</h3>
-            <div class="tags"><span class="tag">图像生成</span><span class="tag">视频</span><span class="tag">TTS/STT</span></div>
-          </article>
-          <article class="card">
-            <h3>工作流/自动化</h3>
-            <div class="tags"><span class="tag">Agents</span><span class="tag">Pipelines</span></div>
-          </article>
-          <article class="card">
-            <h3>插件与扩展</h3>
-            <div class="tags"><span class="tag">Chrome</span><span class="tag">VSCode</span></div>
-          </article>
-          <article class="card">
-            <h3>知识管理/搜索</h3>
-            <div class="tags"><span class="tag">Docs</span><span class="tag">PKM</span><span class="tag">RAG</span></div>
-          </article>
+          <a href="#chatbots" class="card">
+            <h3>对话机器人</h3>
+          </a>
+          <a href="#image-gen" class="card">
+            <h3>图像生成</h3>
+          </a>
+          <a href="#video-gen" class="card">
+            <h3>视频生成</h3>
+          </a>
+          <a href="#audio-gen" class="card">
+            <h3>音频生成</h3>
+          </a>
+          <a href="#text-gen" class="card">
+            <h3>文本生成</h3>
+          </a>
+          <a href="#code-gen" class="card">
+            <h3>代码生成</h3>
+          </a>
         </div>
       </div>
     </section>
@@ -219,7 +402,7 @@
     <section id="guides">
       <div class="wrap">
         <h2>教程与指南 Guides & Tutorials</h2>
-        
+        <div class="list"><a href="https://chat.openai.com/"target="_blank" rel="noopener">ChatGPT 官方网站</a><a href="#">ChatGPT 高级提示词速查</a><a href="https://www.midjourney.com/"target="_blank" rel="noopener">MidJourney 官方网站</a><a href="#">MidJourney 入门到进阶</a></div>
       </div>
     </section>
 

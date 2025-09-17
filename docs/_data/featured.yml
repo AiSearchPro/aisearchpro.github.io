@@ -2,13 +2,19 @@
 items:
   - name: "ChatGPT"
     url: "#"
-    meta: "对话式助手 · 文案/翻译/总结"
+    meta:
+      zh: "对话式助手 · 文案/翻译/总结"
+      en: "Conversational AI · Writing/Translation/Summary"
     tags: ["GPT‑4o", "Web", "Freemium"]
   - name: "MidJourney"
     url: "#"
-    meta: "图像生成 · 品质优秀"
+    meta:
+      zh: "图像生成 · 品质优秀"
+      en: "Image Generation · High Quality"
     tags: ["MJ v6", "Discord", "Subscription"]
   - name: "Notion AI"
     url: "#"
-    meta: "知识管理 · 笔记与写作"
+    meta:
+      zh: "知识管理 · 笔记与写作"
+      en: "Knowledge Management · Notes & Writing"
     tags: ["Web", "中文良好"]

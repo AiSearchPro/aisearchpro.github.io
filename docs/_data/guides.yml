@@ -1,12 +1,20 @@
 # 首页「教程与指南」数据源
 items:
-  - title: "ChatGPT 官方网站"
+  - title:
+      zh: "ChatGPT 官方网站"
+      en: "ChatGPT Official Website"
     url: "https://chat.openai.com/"
     external: true
-  - title: "ChatGPT 高级提示词速查"
+  - title:
+      zh: "ChatGPT 高级提示词速查"
+      en: "ChatGPT Advanced Prompts Quick Reference"
     url: "#"
-  - title: "MidJourney 官方网站"
+  - title:
+      zh: "MidJourney 官方网站"
+      en: "MidJourney Official Website"
     url: "https://www.midjourney.com/"
     external: true
-  - title: "MidJourney 入门到进阶"
+  - title:
+      zh: "MidJourney 入门到进阶"
+      en: "MidJourney: From Beginner to Advanced"
     url: "#"

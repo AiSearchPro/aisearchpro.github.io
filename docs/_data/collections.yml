@@ -1,8 +1,14 @@
 # 首页「合集与对比」数据源
 items:
-  - title: "新手必备：10 个免费可用的 AI 工具"
+  - title:
+      zh: "新手必备：10 个免费可用的 AI 工具"
+      en: "Beginner's Guide: 10 Free AI Tools You Must Know"
     url: "#"
-  - title: "文案写作工具横评：哪个更适合你？"
+  - title:
+      zh: "文案写作工具横评：哪个更适合你？"
+      en: "Writing Tools Comparison: Which One Suits You Best?"
     url: "#"
-  - title: "图片生成：MidJourney vs SDXL vs DALL·E"
+  - title:
+      zh: "图片生成：MidJourney vs SDXL vs DALL·E"
+      en: "Image Generation: MidJourney vs SDXL vs DALL·E"
     url: "#"

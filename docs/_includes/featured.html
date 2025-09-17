@@ -1,10 +1,19 @@
 {%- comment -%} 主页：热门推荐卡片渲染（数据：site.data.featured.items） {%- endcomment -%}
 <div class="grid">
   {%- assign list = include.items | default: site.data.featured.items -%}
+  {%- assign current_lang = site.default_lang | default: 'zh' -%}
   {%- for item in list -%}
     <article class="card">
       <h3><a href="{{ item.url | default: '#' }}"{%- if item.external -%} target="_blank" rel="noopener"{%- endif -%}>{{ item.name }}</a></h3>
-      {%- if item.meta -%}<div class="meta">{{ item.meta }}</div>{%- endif -%}
+      {%- if item.meta -%}
+        {%- if item.meta.zh and item.meta.en -%}
+          <div class="meta" data-zh="{{ item.meta.zh }}" data-en="{{ item.meta.en }}">{{ item.meta[current_lang] | default: item.meta.zh }}</div>
+        {%- elsif item.meta[current_lang] -%}
+          <div class="meta">{{ item.meta[current_lang] }}</div>
+        {%- else -%}
+          <div class="meta">{{ item.meta }}</div>
+        {%- endif -%}
+      {%- endif -%}
       {%- if item.tags -%}
       <div class="tags">
         {%- for tag in item.tags -%}
