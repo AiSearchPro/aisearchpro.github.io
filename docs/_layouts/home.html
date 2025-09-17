@@ -58,6 +58,15 @@
 
     footer { padding: 30px 0 60px; color: var(--muted); text-align:center; }
   </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6W8BHNWW2G"></script>
+  <script>
+    // Google Analytics 4 基础配置（CTA 埋点使用）
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6W8BHNWW2G');
+  </script>
 </head>
 <body>
   <header class="topnav">
@@ -86,8 +95,8 @@
         <h1>{{ site.languages[site.default_lang].hero.title | default: "精选最佳 AI 工具与应用 · 每日更新" }}</h1>
         <p>{{ site.languages[site.default_lang].hero.subtitle | default: "按使用场景与工具类型分类，帮助你以更低成本、更高效率找到合适的 AI 解决方案。支持中文优先、免登录/免信用卡筛选，覆盖 ChatGPT、Claude、Gemini、Midjourney、SDXL 等主流模型。" }}</p>
         <div class="cta">
-          <a class="btn primary" href="{{ site.baseurl | default: '' }}/#featured">{{ site.languages[site.default_lang].buttons.discover | default: "立即发现工具" }}</a>
-          <a class="btn" href="https://github.com/aisearchpro/aisearchpro.github.io/issues/new?template=submit-tool.md" target="_blank" rel="noopener">{{ site.languages[site.default_lang].buttons.submit | default: "提交/推荐工具" }}</a>
+          <a class="btn primary" data-cta="hero_discover" href="{{ site.baseurl | default: '' }}/#featured">{{ site.languages[site.default_lang].buttons.discover | default: "立即发现工具" }}</a>
+          <a class="btn" data-cta="hero_submit" href="https://github.com/aisearchpro/aisearchpro.github.io/issues/new?template=submit-tool.md" target="_blank" rel="noopener">{{ site.languages[site.default_lang].buttons.submit | default: "提交/推荐工具" }}</a>
         </div>
         <div class="search">
           <input type="text" placeholder="{{ site.languages[site.default_lang].search.placeholder | default: '搜索关键词（如：写作、绘图、字幕、开源、中文、免费）' }}" id="search-input">
@@ -199,6 +208,18 @@
     </div>
   </footer>
   <script>
+    // 获取当前语言（用于埋点参数）
+    function getCurrentLang() {
+      try {
+        const saved = localStorage.getItem('preferred-language');
+        if (saved) return saved;
+      } catch (e) {}
+      const htmlLang = (document.documentElement.lang || '').toLowerCase();
+      if (htmlLang.startsWith('zh')) return 'zh';
+      if (htmlLang.startsWith('en')) return 'en';
+      return 'zh';
+    }
+
     function performSearch() {
       const input = document.getElementById('search-input');
       if (!input) return;
@@ -208,8 +229,23 @@
         return;
       }
       const encoded = encodeURIComponent(q);
-      const internal = '/search?q=' + encoded;
-      window.location.href = internal;
+      const base = "{{ site.baseurl | default: '' }}";
+      const internal = base + '/search?q=' + encoded;
+
+      // GA4 搜索埋点：确保在跳转前上报
+      if (typeof gtag === 'function') {
+        let navigated = false;
+        const go = () => { if (navigated) return; navigated = true; window.location.href = internal; };
+        gtag('event', 'search', {
+          search_term: q,
+          lang: getCurrentLang(),
+          event_callback: go,
+          event_timeout: 200
+        });
+        setTimeout(go, 220);
+      } else {
+        window.location.href = internal;
+      }
     }
     (function() {
       const input = document.getElementById('search-input');
@@ -220,6 +256,25 @@
           }
         });
       }
+
+      // 绑定 Hero CTA 点击埋点
+      const ctaLinks = document.querySelectorAll('.cta a[data-cta]');
+      ctaLinks.forEach(a => {
+        a.addEventListener('click', function() {
+          try {
+            const name = this.getAttribute('data-cta') || 'cta';
+            const url = this.getAttribute('href') || '';
+            if (typeof gtag === 'function') {
+              gtag('event', 'select_content', {
+                content_type: 'cta',
+                item_id: name,
+                link_url: url,
+                lang: getCurrentLang()
+              });
+            }
+          } catch (e) {}
+        });
+      });
     })();
   </script>
 </body>
