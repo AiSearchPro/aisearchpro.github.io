@@ -121,23 +121,24 @@
       <div class="wrap">
         <h2>热门推荐 Featured Picks</h2>
         <p class="sub">人工精选/热度靠前 · 快速上手</p>
-        <div class="grid">
-          <article class="card">
-            <h3><a href="#">ChatGPT</a></h3>
-            <div class="meta">对话式助手 · 文案/翻译/总结</div>
-            <div class="tags"><span class="tag">GPT‑4o</span><span class="tag">Web</span><span class="tag">Freemium</span></div>
-          </article>
-          <article class="card">
-            <h3><a href="#">MidJourney</a></h3>
-            <div class="meta">图像生成 · 品质优秀</div>
-            <div class="tags"><span class="tag">MJ v6</span><span class="tag">Discord</span><span class="tag">Subscription</span></div>
-          </article>
-          <article class="card">
-            <h3><a href="#">Notion AI</a></h3>
-            <div class="meta">知识管理 · 笔记与写作</div>
-            <div class="tags"><span class="tag">Web</span><span class="tag">中文良好</span></div>
-          </article>
-        </div>
+-        <div class="grid">
+-          <article class="card">
+-            <h3><a href="#">ChatGPT</a></h3>
+-            <div class="meta">对话式助手 · 文案/翻译/总结</div>
+-            <div class="tags"><span class="tag">GPT‑4o</span><span class="tag">Web</span><span class="tag">Freemium</span></div>
+-          </article>
+-          <article class="card">
+-            <h3><a href="#">MidJourney</a></h3>
+-            <div class="meta">图像生成 · 品质优秀</div>
+-            <div class="tags"><span class="tag">MJ v6</span><span class="tag">Discord</span><span class="tag">Subscription</span></div>
+-          </article>
+-          <article class="card">
+-            <h3><a href="#">Notion AI</a></h3>
+-            <div class="meta">知识管理 · 笔记与写作</div>
+-            <div class="tags"><span class="tag">Web</span><span class="tag">中文良好</span></div>
+-          </article>
+-        </div>
++        {% include featured.html %}
       </div>
     </section>
 
@@ -146,17 +147,45 @@
       <div class="wrap">
         <h2>今日/本周更新 Today / This Week</h2>
         <p class="sub">持续新增与校准，体现“每日更新”的承诺</p>
-        <div class="list">
-          <div>
-            <a href="#">应用 A（写作提效）</a> · <small>新增 · 2025-09-17</small>
-          </div>
-          <div>
-            <a href="#">工具 B（视频字幕）</a> · <small>升级 · 2025-09-16</small>
-          </div>
-          <div>
-            <a href="#">合集：新手必备 AI 工具清单</a> · <small>更新 · 2025-09-15</small>
-          </div>
-        </div>
+-        <div class="list">
+-          <div>
+-            <a href="#">应用 A（写作提效）</a> · <small>新增 · 2025-09-17</small>
+-          </div>
+-          <div>
+-            <a href="#">工具 B（视频字幕）</a> · <small>升级 · 2025-09-16</small>
+-          </div>
+-          <div>
+-            <a href="#">合集：新手必备 AI 工具清单</a> · <small>更新 · 2025-09-15</small>
+-          </div>
+-        </div>
++        {% include updates.html %}
+      </div>
+    </section>
+
+    <!-- 合集与对比 -->
+    <section id="collections">
+      <div class="wrap">
+        <h2>合集与对比 Collections & Comparisons</h2>
+-        <div class="list">
+-          <a href="#">新手必备：10 个免费可用的 AI 工具</a>
+-          <a href="#">文案写作工具横评：哪个更适合你？</a>
+-          <a href="#">图片生成：MidJourney vs SDXL vs DALL·E</a>
+-        </div>
++        {% include collections.html %}
+      </div>
+    </section>
+
+    <!-- 教程与指南 -->
+    <section id="guides">
+      <div class="wrap">
+        <h2>教程与指南 Guides & Tutorials</h2>
+-        <div class="list">
+-          <a href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT 官方网站</a>
+-          <a href="#">ChatGPT 高级提示词速查</a>
+-          <a href="https://www.midjourney.com/" target="_blank" rel="noopener">MidJourney 官方网站</a>
+-          <a href="#">MidJourney 入门到进阶</a>
+-        </div>
++        {% include guides.html %}
       </div>
     </section>
 
@@ -248,31 +277,6 @@
             <h3>知识管理/搜索</h3>
             <div class="tags"><span class="tag">Docs</span><span class="tag">PKM</span><span class="tag">RAG</span></div>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- 合集与对比 -->
-    <section id="collections">
-      <div class="wrap">
-        <h2>合集与对比 Collections & Comparisons</h2>
-        <div class="list">
-          <a href="#">新手必备：10 个免费可用的 AI 工具</a>
-          <a href="#">文案写作工具横评：哪个更适合你？</a>
-          <a href="#">图片生成：MidJourney vs SDXL vs DALL·E</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 教程与指南 -->
-    <section id="guides">
-      <div class="wrap">
-        <h2>教程与指南 Guides & Tutorials</h2>
-        <div class="list">
-          <a href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT 官方网站</a>
-          <a href="#">ChatGPT 高级提示词速查</a>
-          <a href="https://www.midjourney.com/" target="_blank" rel="noopener">MidJourney 官方网站</a>
-          <a href="#">MidJourney 入门到进阶</a>
         </div>
       </div>
     </section>

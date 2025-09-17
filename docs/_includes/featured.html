@@ -1,0 +1,16 @@
+{%- comment -%} 首页热门推荐卡片渲染（数据：site.data.featured） {%- endcomment -%}
+<div class="grid">
+  {%- for item in site.data.featured -%}
+  <article class="card">
+    <h3><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.name }}</a></h3>
+    <div class="meta">{{ item.meta }}</div>
+    {%- if item.tags and item.tags.size > 0 -%}
+    <div class="tags">
+      {%- for tag in item.tags -%}
+      <span class="tag">{{ tag }}</span>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+  </article>
+  {%- endfor -%}
+</div>

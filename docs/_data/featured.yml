@@ -1,0 +1,13 @@
+# 首页-热门推荐数据（默认英文，可后续增加 zh 字段）
+- name: ChatGPT
+  url: https://chat.openai.com/
+  meta: Conversational assistant · writing/translation/summarization
+  tags: ["GPT-4o", "Web", "Freemium"]
+- name: MidJourney
+  url: https://www.midjourney.com/
+  meta: Image generation · high quality
+  tags: ["MJ v6", "Discord", "Subscription"]
+- name: Notion AI
+  url: https://www.notion.so/product/ai
+  meta: Knowledge management · notes & writing
+  tags: ["Web", "Chinese friendly"]
