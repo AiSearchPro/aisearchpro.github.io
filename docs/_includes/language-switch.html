@@ -244,6 +244,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.tag[data-zh][data-en]').forEach(element => {
       element.textContent = element.getAttribute(`data-${lang}`);
     });
+    
+    // 更新工具类型卡片标题
+    document.querySelectorAll('.tool-type-title[data-zh][data-en]').forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
+    });
   }
 });
 </script>

@@ -319,6 +319,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.tag[data-zh][data-en]').forEach(element => {
       element.textContent = element.getAttribute(`data-${lang}`);
     });
+    
+    // 更新工具类型卡片标题
+    document.querySelectorAll('.tool-type-title[data-zh][data-en]').forEach(element => {
+      element.textContent = element.getAttribute(`data-${lang}`);
+    });
   }
 });
 </script>
@@ -402,22 +407,22 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="sub section-subtitle" data-zh="按产品形态/使用方式划分" data-en="Categorized by product form/usage method">按产品形态/使用方式划分</div>
         <div class="grid">
           <a href="#chatbots" class="card">
-            <h3>对话机器人</h3>
+            <h3 class="tool-type-title" data-zh="对话机器人" data-en="Chatbots">对话机器人</h3>
           </a>
           <a href="#image-gen" class="card">
-            <h3>图像生成</h3>
+            <h3 class="tool-type-title" data-zh="图像生成" data-en="Image Generation">图像生成</h3>
           </a>
           <a href="#video-gen" class="card">
-            <h3>视频生成</h3>
+            <h3 class="tool-type-title" data-zh="视频生成" data-en="Video Generation">视频生成</h3>
           </a>
           <a href="#audio-gen" class="card">
-            <h3>音频生成</h3>
+            <h3 class="tool-type-title" data-zh="音频生成" data-en="Audio Generation">音频生成</h3>
           </a>
           <a href="#text-gen" class="card">
-            <h3>文本生成</h3>
+            <h3 class="tool-type-title" data-zh="文本生成" data-en="Text Generation">文本生成</h3>
           </a>
           <a href="#code-gen" class="card">
-            <h3>代码生成</h3>
+            <h3 class="tool-type-title" data-zh="代码生成" data-en="Code Generation">代码生成</h3>
           </a>
         </div>
       </div>
