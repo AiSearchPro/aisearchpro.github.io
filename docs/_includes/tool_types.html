@@ -1,0 +1,41 @@
+{%- comment -%} 工具类型详细页面渲染模板 {%- endcomment -%}
+{%- assign category_id = include.category -%}
+{%- assign category_data = site.data.tool_types.categories[category_id] -%}
+{%- assign current_lang = site.default_lang | default: 'zh' -%}
+
+{%- if category_data -%}
+<div class="category-detail">
+  <div class="wrap">
+    <h2 class="category-title">{{ category_data.title[current_lang] | default: category_data.title.zh }}</h2>
+    <p class="category-description">{{ category_data.description[current_lang] | default: category_data.description.zh }}</p>
+    
+    <div class="tools-grid">
+      {%- for tool in category_data.tools -%}
+        <article class="tool-card">
+          <h3><a href="{{ tool.url }}" target="_blank" rel="noopener">{{ tool.name }}</a></h3>
+          <p class="tool-description">{{ tool.description[current_lang] | default: tool.description.zh }}</p>
+          {%- if tool.tags -%}
+          <div class="tool-tags">
+            {%- for tag in tool.tags -%}
+              <span class="tag">{{ tag }}</span>
+            {%- endfor -%}
+          </div>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+    
+    <div class="back-link">
+      <a href="#tool-types">← 返回工具类型</a>
+    </div>
+  </div>
+</div>
+{%- else -%}
+<div class="category-not-found">
+  <div class="wrap">
+    <h2>分类未找到</h2>
+    <p>抱歉，请求的工具类型分类不存在。</p>
+    <a href="#tool-types">← 返回工具类型</a>
+  </div>
+</div>
+{%- endif -%}

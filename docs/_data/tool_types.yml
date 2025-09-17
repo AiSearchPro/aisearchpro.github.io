@@ -1,0 +1,163 @@
+# 工具类型数据源
+categories:
+  chatbots:
+    title:
+      zh: "对话机器人"
+      en: "Chatbots"
+    description:
+      zh: "智能对话AI助手"
+      en: "Intelligent conversational AI assistants"
+    tools:
+      - name: "ChatGPT"
+        url: "https://chatgpt.com/"
+        description:
+          zh: "OpenAI的通用对话AI"
+          en: "OpenAI's general-purpose conversational AI"
+        tags: ["GPT-4o", "通用", "对话"]
+      - name: "Claude"
+        url: "https://claude.ai/"
+        description:
+          zh: "Anthropic的AI助手"
+          en: "Anthropic's AI assistant"
+        tags: ["长文本", "分析", "安全"]
+      - name: "Gemini"
+        url: "https://gemini.google.com/"
+        description:
+          zh: "Google的多模态AI"
+          en: "Google's multimodal AI"
+        tags: ["多模态", "Google", "免费"]
+
+  image_gen:
+    title:
+      zh: "图像生成"
+      en: "Image Generation"
+    description:
+      zh: "AI图像创作工具"
+      en: "AI image creation tools"
+    tools:
+      - name: "MidJourney"
+        url: "https://www.midjourney.com/"
+        description:
+          zh: "高质量艺术图像生成"
+          en: "High-quality artistic image generation"
+        tags: ["艺术", "高质量", "Discord"]
+      - name: "DALL·E 3"
+        url: "https://openai.com/dall-e-3"
+        description:
+          zh: "OpenAI的图像生成模型"
+          en: "OpenAI's image generation model"
+        tags: ["OpenAI", "精确", "创意"]
+      - name: "Stable Diffusion"
+        url: "https://stability.ai/"
+        description:
+          zh: "开源图像生成模型"
+          en: "Open-source image generation model"
+        tags: ["开源", "免费", "可定制"]
+
+  video_gen:
+    title:
+      zh: "视频生成"
+      en: "Video Generation"
+    description:
+      zh: "AI视频创作工具"
+      en: "AI video creation tools"
+    tools:
+      - name: "RunwayML"
+        url: "https://runwayml.com/"
+        description:
+          zh: "专业AI视频生成平台"
+          en: "Professional AI video generation platform"
+        tags: ["专业", "视频编辑", "创意"]
+      - name: "Pika Labs"
+        url: "https://pika.art/"
+        description:
+          zh: "简单易用的视频生成"
+          en: "Easy-to-use video generation"
+        tags: ["简单", "快速", "创意"]
+      - name: "Luma AI"
+        url: "https://lumalabs.ai/"
+        description:
+          zh: "3D视频生成技术"
+          en: "3D video generation technology"
+        tags: ["3D", "创新", "技术"]
+
+  audio_gen:
+    title:
+      zh: "音频生成"
+      en: "Audio Generation"
+    description:
+      zh: "AI音频创作工具"
+      en: "AI audio creation tools"
+    tools:
+      - name: "Suno"
+        url: "https://suno.ai/"
+        description:
+          zh: "AI音乐和歌曲生成"
+          en: "AI music and song generation"
+        tags: ["音乐", "歌曲", "创作"]
+      - name: "ElevenLabs"
+        url: "https://elevenlabs.io/"
+        description:
+          zh: "AI语音合成和克隆"
+          en: "AI voice synthesis and cloning"
+        tags: ["语音合成", "克隆", "多语言"]
+      - name: "Mubert"
+        url: "https://mubert.com/"
+        description:
+          zh: "AI背景音乐生成"
+          en: "AI background music generation"
+        tags: ["背景音乐", "实时", "商用"]
+
+  text_gen:
+    title:
+      zh: "文本生成"
+      en: "Text Generation"
+    description:
+      zh: "AI文本创作工具"
+      en: "AI text creation tools"
+    tools:
+      - name: "Jasper"
+        url: "https://www.jasper.ai/"
+        description:
+          zh: "营销文案AI写作助手"
+          en: "Marketing copy AI writing assistant"
+        tags: ["营销", "文案", "商业"]
+      - name: "Copy.ai"
+        url: "https://www.copy.ai/"
+        description:
+          zh: "多用途AI写作工具"
+          en: "Multi-purpose AI writing tool"
+        tags: ["写作", "多用途", "模板"]
+      - name: "Writesonic"
+        url: "https://writesonic.com/"
+        description:
+          zh: "SEO优化的AI写作"
+          en: "SEO-optimized AI writing"
+        tags: ["SEO", "优化", "写作"]
+
+  code_gen:
+    title:
+      zh: "代码生成"
+      en: "Code Generation"
+    description:
+      zh: "AI编程辅助工具"
+      en: "AI programming assistance tools"
+    tools:
+      - name: "GitHub Copilot"
+        url: "https://github.com/features/copilot"
+        description:
+          zh: "AI代码补全和生成"
+          en: "AI code completion and generation"
+        tags: ["代码补全", "GitHub", "编程"]
+      - name: "Tabnine"
+        url: "https://www.tabnine.com/"
+        description:
+          zh: "智能代码补全工具"
+          en: "Intelligent code completion tool"
+        tags: ["代码补全", "多语言", "IDE"]
+      - name: "Replit Ghostwriter"
+        url: "https://replit.com/ai"
+        description:
+          zh: "在线AI编程助手"
+          en: "Online AI programming assistant"
+        tags: ["在线编程", "协作", "学习"]

@@ -1,0 +1,136 @@
+# 使用场景数据源
+categories:
+  office:
+    title:
+      zh: "办公与效率"
+      en: "Office & Productivity"
+    description:
+      zh: "提升工作效率的AI工具"
+      en: "AI tools to boost work productivity"
+    tools:
+      - name: "ChatGPT"
+        url: "https://chatgpt.com/"
+        description:
+          zh: "文档写作、邮件回复、会议纪要"
+          en: "Document writing, email replies, meeting notes"
+        tags: ["文档", "邮件", "会议"]
+      - name: "Notion AI"
+        url: "https://www.notion.so/ai"
+        description:
+          zh: "智能笔记、项目管理、知识库"
+          en: "Smart notes, project management, knowledge base"
+        tags: ["笔记", "管理", "知识库"]
+      - name: "Grammarly"
+        url: "https://www.grammarly.com/"
+        description:
+          zh: "英文写作助手、语法检查"
+          en: "English writing assistant, grammar check"
+        tags: ["写作", "语法", "英文"]
+
+  programming:
+    title:
+      zh: "编程与代码"
+      en: "Programming & Code"
+    description:
+      zh: "编程开发的AI助手"
+      en: "AI assistants for programming development"
+    tools:
+      - name: "GitHub Copilot"
+        url: "https://github.com/features/copilot"
+        description:
+          zh: "AI代码补全、智能编程助手"
+          en: "AI code completion, intelligent programming assistant"
+        tags: ["代码补全", "编程", "GitHub"]
+      - name: "Cursor"
+        url: "https://cursor.sh/"
+        description:
+          zh: "AI驱动的代码编辑器"
+          en: "AI-powered code editor"
+        tags: ["编辑器", "AI编程", "开发"]
+      - name: "Replit"
+        url: "https://replit.com/"
+        description:
+          zh: "在线编程环境、AI代码助手"
+          en: "Online programming environment, AI code assistant"
+        tags: ["在线编程", "协作", "学习"]
+
+  creative:
+    title:
+      zh: "创意与设计"
+      en: "Creative & Design"
+    description:
+      zh: "创意设计的AI工具"
+      en: "AI tools for creative design"
+    tools:
+      - name: "MidJourney"
+        url: "https://www.midjourney.com/"
+        description:
+          zh: "高质量AI图像生成"
+          en: "High-quality AI image generation"
+        tags: ["图像生成", "艺术", "创意"]
+      - name: "DALL·E 3"
+        url: "https://openai.com/dall-e-3"
+        description:
+          zh: "OpenAI的图像生成模型"
+          en: "OpenAI's image generation model"
+        tags: ["图像生成", "OpenAI", "创意"]
+      - name: "Canva AI"
+        url: "https://www.canva.com/ai-image-generator/"
+        description:
+          zh: "设计模板、AI图像生成"
+          en: "Design templates, AI image generation"
+        tags: ["设计", "模板", "图像"]
+
+  learning:
+    title:
+      zh: "学习与研究"
+      en: "Learning & Research"
+    description:
+      zh: "学习研究的AI助手"
+      en: "AI assistants for learning and research"
+    tools:
+      - name: "Perplexity"
+        url: "https://www.perplexity.ai/"
+        description:
+          zh: "AI搜索引擎、研究助手"
+          en: "AI search engine, research assistant"
+        tags: ["搜索", "研究", "学习"]
+      - name: "Claude"
+        url: "https://claude.ai/"
+        description:
+          zh: "长文本分析、学术写作"
+          en: "Long text analysis, academic writing"
+        tags: ["分析", "写作", "学术"]
+      - name: "Quizlet"
+        url: "https://quizlet.com/"
+        description:
+          zh: "AI学习卡片、记忆训练"
+          en: "AI learning cards, memory training"
+        tags: ["学习卡片", "记忆", "训练"]
+
+  entertainment:
+    title:
+      zh: "娱乐与生活"
+      en: "Entertainment & Life"
+    description:
+      zh: "娱乐生活的AI应用"
+      en: "AI applications for entertainment and life"
+    tools:
+      - name: "Suno"
+        url: "https://suno.ai/"
+        description:
+          zh: "AI音乐生成、创作歌曲"
+          en: "AI music generation, song creation"
+        tags: ["音乐生成", "创作", "娱乐"]
+      - name: "RunwayML"
+        url: "https://runwayml.com/"
+        description:
+          zh: "AI视频生成、视频编辑"
+          en: "AI video generation, video editing"
+        tags: ["视频生成", "编辑", "创意"]
+      - name: "Character.AI"
+        url: "https://character.ai/"
+        description:
+          zh: "AI角色对话、娱乐聊天"
+          en: "AI character chat, entertainment conversation"
+        tags: ["角色扮演", "对话", "娱乐"]
